@@ -1,4 +1,6 @@
 package net.minecraft.src;
+
+import org.lwjgl.input.Keyboard;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -15,32 +17,31 @@ import net.minecraft.world.World;
 
 public class ItemBXPORB extends Item {
 
-public ItemBXPORB(int i)
-  {
-   super(i);
-   this.setCreativeTab(CreativeTabs.tabMaterials);
-  
-  }
-
-  public boolean hasEffect(ItemStack itemstack)
-  {
-   return false;
-  }
-
-  public ItemStack onItemRightClick(ItemStack itemstack, World world,
-			EntityPlayer entityplayer){
+	public ItemBXPORB(int i) {
+		super(i);
+		this.setCreativeTab(CreativeTabs.tabMaterials);
+	}
 	
-	{
-		ExtendedPlayer.get(entityplayer).addXp(6);
-		--itemstack.stackSize;
-		return itemstack;}
+	public boolean hasEffect(ItemStack itemstack) {
+		return false;
 	}
-  @SideOnly(Side.CLIENT)
-  public void registerIcons(IconRegister ir)
-  {
-          {
-          this.itemIcon = ir.registerIcon("xporb");
-          }
-  }
 
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+		if (Keyboard.isKeyDown(Keyboard.KEY_RSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+			ExtendedPlayer.get(entityplayer).addXp(itemstack.stackSize*6);
+			itemstack.stackSize = 0;
+			return itemstack;
+		} else {
+			ExtendedPlayer.get(entityplayer).addXp(6);
+			--itemstack.stackSize;
+			return itemstack;
+		}
 	}
+	
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir) {
+		{
+			this.itemIcon = ir.registerIcon("xporb");
+		}
+	}
+}
