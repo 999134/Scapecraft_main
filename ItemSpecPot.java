@@ -34,10 +34,12 @@ public ItemSpecPot(int i)
 	
 	{
 		   ExtendedPlayer props = ExtendedPlayer.get(entityplayer);	
-			if (props.getEnergy() <  7000)
+			if (props.getTheifcd() >=  99){
+				props.addTcd(-40);	if (props.getEnergy() <  5000)
 			props.addEnergy(2500);
 		--itemstack.stackSize;
-		return itemstack;}
+		return itemstack;}}
+	return itemstack;
 	}
   @SideOnly(Side.CLIENT)
   public void registerIcons(IconRegister ir)

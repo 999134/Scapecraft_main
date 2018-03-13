@@ -175,7 +175,7 @@ public class EntitySergeantSteelwill extends EntityMob
         int quickvar1 = rand.nextInt(10000) + 1;
         int quickvar2 = rand.nextInt(500) + 1;
         int quickvar3 = rand.nextInt(100) + 1;
-        int quickvar4 = rand.nextInt(1000) + 1;
+        int quickvar4 = rand.nextInt(1500) + 1;
          
         if(quickvar <= 1){
          

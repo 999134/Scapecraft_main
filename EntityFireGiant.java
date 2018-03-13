@@ -191,24 +191,20 @@ protected String getLivingSound()
         int quickvar8 = rand.nextInt(5) + 1;
         int quickvar9 = rand.nextInt(7) + 1;
         int quickvar10 = rand.nextInt(1000) + 1;
-        int quickvar11 = rand.nextInt(42) + 1;
+        int quickvar11 = rand.nextInt(36) + 1;
          
- if(quickvar <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.dlong), 1);
-	MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Fire Giant dropped a dragon longsword!")));
-    
-if(quickvar1 <= 1){entityDropItem(new ItemStack(mod_phat.dragonLeggings), 1);
-MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Fire Giant dropped some dragon platelegs!")));}
+ if(quickvar <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.dlong), 1);MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Fire Giant dropped a dragon longsword!")));}    
+if(quickvar1 <= 1){entityDropItem(new ItemStack(mod_phat.dragonLeggings), 1);MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Fire Giant dropped some dragon platelegs!")));}
 if(quickvar2 <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.Mithore), 1);}
 if(quickvar3 <= 1){entityDropItem(new ItemStack(mod_phat.runeBoots), 1);}
-if(quickvar4 <= 1){entityDropItem(new ItemStack(mod_phat.dragonHelmet), 1);
-MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Fire Giant dropped a dragon helmet!")));}
+if(quickvar4 <= 1){entityDropItem(new ItemStack(mod_phat.dragonHelmet), 1);MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Fire Giant dropped a dragon helmet!")));}
 if(quickvar5 <= 1){entityDropItem(new ItemStack(mod_phat.addyChestplate), 1);}
 if(quickvar6 <= 1){entityDropItem(new ItemStack(Item.goldNugget), 1);}
 if(quickvar7 <= 1){entityDropItem(new ItemStack(mod_phat.blackChestplate), 1);}
 if(quickvar8 <= 1){entityDropItem(new ItemStack(Block.obsidian), 1);}
 if(quickvar9 <= 1){entityDropItem(new ItemStack(mod_phat.whiteBoots), 1);}
 
-MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Fire Giant dropped a dark bow!")));}
+
 if(quickvar11 <= 1){entityDropItem(new ItemStack(mod_phat.Granite), 1);}
 int XP = rand.nextInt(1) + 1;if(XP <= 1){entityDropItem(new ItemStack(mod_Flower.XPORB), 1);}
 int XP1 = rand.nextInt(1) + 1;if(XP <= 1){entityDropItem(new ItemStack(mod_Flower.XPORB), 1);}

@@ -32,10 +32,13 @@ public ItemSuperDef(int i)
   public ItemStack onItemRightClick(ItemStack itemstack, World world,
 			EntityPlayer entityplayer){
 	
-	{
+	  ExtendedPlayer props = ExtendedPlayer.get(entityplayer);		
+		if (props.getTheifcd() >=  99){
+			props.addTcd(-40);
 		entityplayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 600, 1));
 		--itemstack.stackSize;
 		return itemstack;}
+		return itemstack;
 	}
   @SideOnly(Side.CLIENT)
   public void registerIcons(IconRegister ir)

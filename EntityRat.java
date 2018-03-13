@@ -178,7 +178,7 @@ protected String getLivingSound()
         if(quickvar <= 1){
          
         	entityDropItem(new ItemStack(Item.swordStone), 1);
-         
+        	entityDropItem(new ItemStack(mod_Flower.RatTail), 1);
         }
         if(quickvar1 <= 1){
             

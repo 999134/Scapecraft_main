@@ -244,12 +244,12 @@ public ItemGloves2(int i)
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
     	 
-    	 if (rate > 95) {
+    	 if (rate > 92) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(50);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
     	  if (loot>1 && loot<100) {EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Item.goldNugget,9));} 
-      	  if (loot>60 && loot<300) {EntityPlayer.inventory.addItemStackToInventory(new ItemStack(mod_Flower.fishpie,10));} 
+      	  if (loot>60 && loot<300) {EntityPlayer.inventory.addItemStackToInventory(new ItemStack(mod_Flower.fishpie,16));} 
       	  if (loot>300 && loot<400) {EntityPlayer.inventory.addItemStackToInventory(new ItemStack(mod_Flower.sarabrew,8));} 
       	  if (loot>400 && loot<500) {EntityPlayer.inventory.addItemStackToInventory(new ItemStack(mod_Flower.superstr,8));} 
       	  if (loot>500 && loot<530) {EntityPlayer.inventory.addItemStackToInventory(new ItemStack(mod_phat.runeChestplate));} 

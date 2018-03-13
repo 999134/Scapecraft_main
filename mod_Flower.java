@@ -34,9 +34,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
          public static final Block cabbage = (new Blockcabbage(204, 90).setHardness(0.0F).setUnlocalizedName("cabbage").setStepSound(Block.soundGrassFootstep));
          public static final Item cutcabbage = (new ItemFood(17008, 2, true)).setUnlocalizedName("cutcabbage").setTextureName("cutcabbage");
          public static final Item cabbagepie = (new ItemModFood(17009, 4,6, true)).setAlwaysEdible().setUnlocalizedName("cabbagepie").setTextureName("cabbagepie").setMaxStackSize(8);
-         public static final Item fishpie = (new ItemModFood(17011, 4,10, true)).setAlwaysEdible().setUnlocalizedName("fishpie").setTextureName("fishpie").setMaxStackSize(8);        
-         public static final Item meatpie = (new ItemModFood(17012, 4,8, true)).setAlwaysEdible().setUnlocalizedName("meatpie").setTextureName("meatpie").setMaxStackSize(8);
-         public static final Item applepie = (new ItemModFood(17013, 4,7, true)).setAlwaysEdible().setUnlocalizedName("applepie").setTextureName("applepie").setMaxStackSize(8);
+         public static final Item fishpie = (new ItemModFood(17011, 4,14, true)).setAlwaysEdible().setUnlocalizedName("fishpie").setTextureName("fishpie").setMaxStackSize(8);        
+         public static final Item meatpie = (new ItemModFood(17012, 4,11, true)).setAlwaysEdible().setUnlocalizedName("meatpie").setTextureName("meatpie").setMaxStackSize(8);
+         public static final Item applepie = (new ItemModFood(17013, 4,8, true)).setAlwaysEdible().setUnlocalizedName("applepie").setTextureName("applepie").setMaxStackSize(8);
          public static final Item beer = (new ItemModFood(17030, 1,4, true)).setAlwaysEdible().setUnlocalizedName("beer").setTextureName("beer");         
          public static final Item cabbagepieuncooked = new Item(17014).setUnlocalizedName("cabbagepieuncooked").setTextureName("cabbagepie");
          public static final Item meatpieuncooked = new Item(17015).setUnlocalizedName("meatuncooked").setTextureName("meatpie");
@@ -256,14 +256,14 @@ ModLoader.addRecipe (new ItemStack(mod_Flower.BlackDleather, 1), new Object[] {"
 
 //REMEMBER TO DISABLE THESE
 //ModLoader.addRecipe (new ItemStack(mod_Flower.HAXORB, 1), new Object[] {" X ", Character.valueOf('X'), Block.dirt});
-ModLoader.addRecipe (new ItemStack(mod_Flower.LOL, 1), new Object[] {" X ","XYX","XXY", Character.valueOf('X'), Block.dirt, Character.valueOf('Y'), Block.wood});
-ModLoader.addRecipe (new ItemStack(mod_Flower.Stats, 1), new Object[] {"X", Character.valueOf('X'), Block.sand});
+//ModLoader.addRecipe (new ItemStack(mod_Flower.LOL, 1), new Object[] {" X ","XYX","XXY", Character.valueOf('X'), Block.dirt, Character.valueOf('Y'), Block.wood});
+//ModLoader.addRecipe (new ItemStack(mod_Flower.Stats, 1), new Object[] {"X", Character.valueOf('X'), Block.sand});
 
 
 
 
 
-ModLoader.addRecipe (new ItemStack(mod_Flower.cabbagepieuncooked, 1), new Object[] {" X ","XYX", Character.valueOf('X'), Block.wood,Character.valueOf('Y'),Block.torchWood});
+//ModLoader.addRecipe (new ItemStack(mod_Flower.cabbagepieuncooked, 1), new Object[] {" X ","XYX", Character.valueOf('X'), Block.wood,Character.valueOf('Y'),Block.torchWood});
 
 
 GameRegistry.addRecipe(new ItemStack(mod_Flower.TombKey, 2), new Object[] { "XYZ", "ABC", " U ", Character.valueOf('X'),mod_Flower.AhrimKey, Character.valueOf('Y'), mod_Flower.AkrisaeKey, Character.valueOf('Z'),mod_Flower.DharokKey, Character.valueOf('A'),mod_Flower.KarilKey, Character.valueOf('B'),mod_Flower.GuthanKey, Character.valueOf('C'),mod_Flower.ToragKey, Character.valueOf('U'),mod_Flower.VeracKey});
