@@ -32,7 +32,9 @@ public ItemSuperRestore(int i)
   public ItemStack onItemRightClick(ItemStack itemstack, World world,
 			EntityPlayer entityplayer){
 	
-	{
+	  ExtendedPlayer props = ExtendedPlayer.get(entityplayer);		
+		if (props.getTheifcd() >=  99){
+			props.addTcd(-40);
 		  if (!world.isRemote)
 	        {
 	            entityplayer.curePotionEffects(itemstack);
@@ -43,6 +45,7 @@ public ItemSuperRestore(int i)
 			 
 		--itemstack.stackSize;
 		return itemstack;}
+		return itemstack;
 	}
   @SideOnly(Side.CLIENT)
   public void registerIcons(IconRegister ir)

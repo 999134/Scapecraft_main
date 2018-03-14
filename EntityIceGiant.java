@@ -213,7 +213,7 @@ protected String getLivingSound()
         int quickvar4 = rand.nextInt(30) + 1;
         int quickvar5 = rand.nextInt(60) + 1;
         int quickvar6 = rand.nextInt(1) + 1;
-        int quickvar7 = rand.nextInt(25) + 1;
+        int quickvar7 = rand.nextInt(18) + 1;
          
         if(quickvar <= 1){
          

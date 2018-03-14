@@ -858,7 +858,7 @@ player.removePotionEffect(Potion.field_76434_w.id);
 					if (ItemBGS.activespecialbgs == 1) {
 						if (!entity.isEntityUndead()) {
 							entity.addPotionEffect(new PotionEffect(Potion.harm.id, 8, 3));
-							entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 300, 5));
+							entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 300, 10));
 						} else {
 							entity.addPotionEffect(new PotionEffect(Potion.heal.id, 8, 2));
 						}
@@ -871,7 +871,7 @@ player.removePotionEffect(Potion.field_76434_w.id);
 					if (ItemZGS.activespecialzgs == 1) {
 						event.ammount += 14.0F;
 						player.addChatMessage("\u00a7ECritical Hit!");
-						entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 400, 5));
+						entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 400, 8));
 						ItemZGS.activespecialzgs = 0;
 					}
 				}
@@ -895,7 +895,7 @@ player.removePotionEffect(Potion.field_76434_w.id);
 		}	
 		if (player.getHeldItem().itemID == mod_BlocksGalore.DDS.itemID || player.getHeldItem().itemID == mod_BlocksGalore.DD.itemID) {
 			if (ItemDD.activespecialdd == 1||ItemDDS.activespecialdds == 1) {
-				event.ammount = event.ammount*3+6.0F;
+				event.ammount = event.ammount*2+8.0F;
 				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,20, 5));
 				player.addChatMessage("\u00a7EDouble Strike!");
 				ItemDD.activespecialdd = 0;

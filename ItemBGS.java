@@ -123,7 +123,7 @@ public class ItemBGS extends ItemSword
         par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
         
         ExtendedPlayer props = ExtendedPlayer.get(par3EntityPlayer);		
-		if (props.getEnergy() >  9900 && activespecialbgs != 1){
+		if (props.getEnergy() >  9900){
 		special = 1;
 		props.addEnergy(-9900);
 		activespecialbgs = 1;

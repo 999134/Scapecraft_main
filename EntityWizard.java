@@ -37,6 +37,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -178,7 +180,7 @@ public class EntityWizard extends EntityMob implements IRangedAttackMob
         int var8 = rand.nextInt(7) + 1;
         int var9 = rand.nextInt(7) + 1;
         int var10 = rand.nextInt(8) + 1;
-        int var11 = rand.nextInt(6000) + 1;
+        int var11 = rand.nextInt(7000) + 1;
         int var12 = rand.nextInt(1) + 1;
          
         if(var <= 1){
@@ -191,7 +193,8 @@ public class EntityWizard extends EntityMob implements IRangedAttackMob
         	entityDropItem(new ItemStack(mod_BlocksGalore.Guthixstaff), 1);
          
         }
-   if(var11 <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.SaradominHilt), 1);}
+   if(var11 <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.SaradominHilt), 1);
+	MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Wizard has dropped a Saradomin Hilt!")));}
    
    if(var3 <= 1){entityDropItem(new ItemStack(mod_Flower.Vtab), 1);}
    if(var4 <= 1){entityDropItem(new ItemStack(mod_Flower.Ftab), 1);}
