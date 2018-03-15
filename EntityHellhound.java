@@ -224,9 +224,9 @@ public class EntityHellhound extends EntityTameable
     /**
      * Called to update the entity's position/logic.
      */
-    public void onUpdate()
-    {
-        super.onUpdate();
+	public void onUpdate() {
+		this.setSize(1F, 1.3F);
+		super.onUpdate();
         this.field_70924_f = this.field_70926_e;
 
         if (this.func_70922_bv())

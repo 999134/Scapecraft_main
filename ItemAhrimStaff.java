@@ -1,5 +1,4 @@
 package net.minecraft.src;
-
 import java.util.Random;
 
 import com.google.common.collect.Multimap;
@@ -23,178 +22,203 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
-public class ItemAhrimStaff extends ItemSword {
-	private float weaponDamage;
-	private final EnumToolMaterial toolMaterial;
+public class ItemAhrimStaff extends ItemSword
+{
+    private float weaponDamage;
+    private final EnumToolMaterial toolMaterial;
 	Random r = new Random();
 
-	public ItemAhrimStaff(int par1, EnumToolMaterial par2EnumToolMaterial) {
-		super(par1, par2EnumToolMaterial);
-		this.toolMaterial = par2EnumToolMaterial;
-		this.maxStackSize = 1;
-		this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
-		this.setCreativeTab(CreativeTabs.tabCombat);
-		this.weaponDamage = 9.0F + par2EnumToolMaterial.getDamageVsEntity();
-		setMaxDamage(211);
-	}
+    public ItemAhrimStaff(int par1, EnumToolMaterial par2EnumToolMaterial)
+    {
+    	super(par1,par2EnumToolMaterial);
+        this.toolMaterial = par2EnumToolMaterial;
+        this.maxStackSize = 1;
+        this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
+        this.setCreativeTab(CreativeTabs.tabCombat);
+        this.weaponDamage = 9.0F + par2EnumToolMaterial.getDamageVsEntity();
+    	setMaxDamage(211);
+    }
 
-	public float func_82803_g() {
-		return this.toolMaterial.getDamageVsEntity();
-	}
+    public float func_82803_g()
+    {
+        return this.toolMaterial.getDamageVsEntity();
+    }
 
-	/**
-	 * Returns the strength of the stack against a given block. 1.0F base,
-	 * (Quality+1)*2 if correct blocktype, 1.5F if sword
-	 */
-	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
-		if (par2Block.blockID == Block.web.blockID) {
-			return 15.0F;
-		} else {
-			Material material = par2Block.blockMaterial;
-			return material != Material.plants && material != Material.vine && material != Material.coral
-					&& material != Material.leaves && material != Material.pumpkin ? 1.0F : 1.5F;
-		}
-	}
+    /**
+     * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if
+     * sword
+     */
+    public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block)
+    {
+        if (par2Block.blockID == Block.web.blockID)
+        {
+            return 15.0F;
+        }
+        else
+        {
+            Material material = par2Block.blockMaterial;
+            return material != Material.plants && material != Material.vine && material != Material.coral && material != Material.leaves && material != Material.pumpkin ? 1.0F : 1.5F;
+        }
+    }
 
-	/**
-	 * Current implementations of this method in child classes do not use the
-	 * entry argument beside ev. They just raise the damage on the stack.
-	 */
-	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase,
-			EntityLivingBase par3EntityLivingBase) {
-		par1ItemStack.damageItem(1, par3EntityLivingBase);
+    /**
+     * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
+     * the damage on the stack.
+     */
+    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
+    {
+        par1ItemStack.damageItem(1, par3EntityLivingBase);
+      
+        
+        ItemStack boots = par3EntityLivingBase.getCurrentItemOrArmor(1);
+        ItemStack legs = par3EntityLivingBase.getCurrentItemOrArmor(2);
+        ItemStack chest = par3EntityLivingBase.getCurrentItemOrArmor(3);
+        ItemStack helmet = par3EntityLivingBase.getCurrentItemOrArmor(4);
 
-		ItemStack boots = par3EntityLivingBase.getCurrentItemOrArmor(1);
-		ItemStack legs = par3EntityLivingBase.getCurrentItemOrArmor(2);
-		ItemStack chest = par3EntityLivingBase.getCurrentItemOrArmor(3);
-		ItemStack helmet = par3EntityLivingBase.getCurrentItemOrArmor(4);
+        if(boots != null && legs != null && chest != null && helmet != null)
+        {
+        if(boots.getItem() == mod_phat.AhrimBoots && legs.getItem() == mod_phat.AhrimLeggings &&
+        chest.getItem() == mod_phat.AhrimChestplate && helmet.getItem() == mod_phat.AhrimHelmet)
+        {
 
-		if (boots != null && legs != null && chest != null && helmet != null) {
-			if (boots.getItem() == mod_phat.AhrimBoots && legs.getItem() == mod_phat.AhrimLeggings
-					&& chest.getItem() == mod_phat.AhrimChestplate && helmet.getItem() == mod_phat.AhrimHelmet) {
+        	  par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 200, 4));
+        	  par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.weakness.id, 200, 1));
+        	  }}
+       
+        
+        return true;
+    }
 
-				par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 200, 4));
-				par2EntityLivingBase.addPotionEffect(new PotionEffect(Potion.weakness.id, 200, 1));
-			}
-		}
+  
 
-		return true;
-	}
+    
+    public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, int par3, int par4, int par5, int par6, EntityLivingBase par7EntityLivingBase)
+    {
+        if ((double)Block.blocksList[par3].getBlockHardness(par2World, par4, par5, par6) != 0.0D)
+        {
+            par1ItemStack.damageItem(2, par7EntityLivingBase);
+        }
 
-	public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, int par3, int par4, int par5, int par6,
-			EntityLivingBase par7EntityLivingBase) {
-		if ((double) Block.blocksList[par3].getBlockHardness(par2World, par4, par5, par6) != 0.0D) {
-			par1ItemStack.damageItem(2, par7EntityLivingBase);
-		}
+        return true;
+    }
 
-		return true;
-	}
+    @SideOnly(Side.CLIENT)
 
-	@SideOnly(Side.CLIENT)
+    /**
+     * Returns True is the item is renderer in full 3D when hold.
+     */
+    public boolean isFull3D()
+    {
+        return true;
+    }
 
-	/**
-	 * Returns True is the item is renderer in full 3D when hold.
-	 */
-	public boolean isFull3D() {
-		return true;
-	}
+    /**
+     * returns the action that specifies what animation to play when the items is being used
+     */
+    public EnumAction getItemUseAction(ItemStack par1ItemStack)
+    {
+        return EnumAction.block;
+    }
 
-	/**
-	 * returns the action that specifies what animation to play when the items
-	 * is being used
-	 */
-	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-		return EnumAction.block;
-	}
+    /**
+     * How long it takes to use or consume an item
+     */
+    public int getMaxItemUseDuration(ItemStack par1ItemStack)
+    {
+        return 72000;
+    }
 
-	/**
-	 * How long it takes to use or consume an item
-	 */
-	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
-		return 72000;
-	}
+    /**
+     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
+     */
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
+    {
+            world.playSoundAtEntity(entityplayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+            if(!world.isRemote && itemstack.getItemDamage() == 0)
+        	{
+        		if (itemstack.getItemDamage() == 0){
+            {
+                    Vec3 look = entityplayer.getLookVec();
+                    EntityLargeFireball fireball = new EntityLargeFireball(world, entityplayer, 0, 0, 0);
+                    fireball.setPosition(
+                                    entityplayer.posX + look.xCoord * 2,
+                                    entityplayer.posY + look.yCoord * 2,
+                                    entityplayer.posZ + look.zCoord * 2);
+                    fireball.accelerationX = look.xCoord * 0.1;
+                    fireball.accelerationY = look.yCoord * 0.1;
+                    fireball.accelerationZ = look.zCoord * 0.1;
+                    world.spawnEntityInWorld(fireball);
+                    
+      			  float chance = r.nextFloat();
 
-	/**
-	 * Called whenever this item is equipped and the right mouse button is
-	 * pressed. Args: itemStack, world, entityPlayer
-	 */
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		world.playSoundAtEntity(entityplayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-		if (!world.isRemote && itemstack.getItemDamage() == 0) {
-			if (itemstack.getItemDamage() == 0) {
-				{
-					Vec3 look = entityplayer.getLookVec();
-					EntitySafeFireball fireball = new EntitySafeFireball(world, entityplayer, 0, 0, 0);
-					fireball.setPosition(entityplayer.posX + look.xCoord * 2, entityplayer.posY + look.yCoord * 2,
-							entityplayer.posZ + look.zCoord * 2);
-					fireball.accelerationX = look.xCoord * 0.1;
-					fireball.accelerationY = look.yCoord * 0.1;
-					fireball.accelerationZ = look.zCoord * 0.1;
-					world.spawnEntityInWorld(fireball);
-					float chance = r.nextFloat();
-					if (chance <= 0.001f)
-						itemstack.setItemDamage(300);
-					else
-						itemstack.setItemDamage(200);
-				}
-			}
-			return itemstack;
-		}
-		return itemstack;
-	}
-	/**
-	 * Returns if the item (tool) can harvest results from the block type.
-	 */
-	public boolean canHarvestBlock(Block par1Block) {
-		return par1Block.blockID == Block.web.blockID;
-	}
+    			  if (chance <= 0.001f)
+    				  itemstack.setItemDamage(300);
+    			  
+    			  else
+    				  itemstack.setItemDamage(200);
+    			  }
+    			
+    		
+    		}
+    		return itemstack;}
+    	return itemstack;
+    }
+    /**
+     * Returns if the item (tool) can harvest results from the block type.
+     */
+    public boolean canHarvestBlock(Block par1Block)
+    {
+        return par1Block.blockID == Block.web.blockID;
+    }
 
-	/**
-	 * Return the enchantability factor of the item, most of the time is based
-	 * on material.
-	 */
-	public int getItemEnchantability() {
-		return this.toolMaterial.getEnchantability();
-	}
+    /**
+     * Return the enchantability factor of the item, most of the time is based on material.
+     */
+    public int getItemEnchantability()
+    {
+        return this.toolMaterial.getEnchantability();
+    }
 
-	/**
-	 * Return the name for this tool's material.
-	 */
-	public String getToolMaterialName() {
-		return this.toolMaterial.toString();
-	}
+    /**
+     * Return the name for this tool's material.
+     */
+    public String getToolMaterialName()
+    {
+        return this.toolMaterial.toString();
+    }
 
-	public void onUpdate(ItemStack itemstack, World world, Entity entity, int i, boolean flag) {
+    
+	public void onUpdate(ItemStack itemstack, World world, Entity entity,
+			int i, boolean flag) {
 		if (itemstack.getItemDamage() > 0) {
 			itemstack.damageItem(-3, (EntityLivingBase) entity);
 		}
 	}
+    /**
+     * Return whether this item is repairable in an anvil.
+     */
+    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+    {
+        return this.toolMaterial.getToolCraftingMaterial() == par2ItemStack.itemID ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
+    }
 
-	/**
-	 * Return whether this item is repairable in an anvil.
-	 */
-	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-		return this.toolMaterial.getToolCraftingMaterial() == par2ItemStack.itemID ? true
-				: super.getIsRepairable(par1ItemStack, par2ItemStack);
-	}
+    public Multimap getItemAttributeModifiers()
+    {
+        Multimap multimap = super.getItemAttributeModifiers();
+        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", (double)this.weaponDamage, 0));
+        return multimap;
+    }
+    
 
-	public Multimap getItemAttributeModifiers() {
-		Multimap multimap = super.getItemAttributeModifiers();
-		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),
-				new AttributeModifier(field_111210_e, "Weapon modifier", (double) this.weaponDamage, 0));
-		return multimap;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister ir) {
-		// if(itemID == mod_BlocksMaterial.Addyaxe.itemID)
-		{
-			this.itemIcon = ir.registerIcon("AhrimStaffinv");
-		}
-	}
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister ir)
+    {
+          //  if(itemID == mod_BlocksMaterial.Addyaxe.itemID)
+            {
+            this.itemIcon = ir.registerIcon("AhrimStaffinv");
+            }
+    }
 }

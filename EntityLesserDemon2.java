@@ -118,6 +118,11 @@ public class EntityLesserDemon2 extends EntityMob
         return this.isBesideClimbableBlock();
     }
 
+	public void onUpdate() {
+		this.setSize(0.85F, 2.5F);
+		super.onUpdate();
+	}
+	
     public void setBesideClimbableBlock(boolean par1)
     {
         byte var2 = this.dataWatcher.getWatchableObjectByte(16);
