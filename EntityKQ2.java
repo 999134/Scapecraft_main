@@ -138,10 +138,9 @@ public class EntityKQ2 extends EntityMob
         this.dataWatcher.addObject(16, new Byte((byte)0));
     }
 
-    public void onUpdate()
-    {
-        super.onUpdate();
-
+	public void onUpdate() {
+		this.setSize(0.55F, 0.7F);
+		super.onUpdate();
         if (!this.worldObj.isRemote)
         {
             this.setBesideClimbableBlock(this.isCollidedHorizontally);

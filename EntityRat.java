@@ -95,14 +95,10 @@ public class EntityRat extends EntityMob
     /**
      * Called to update the entity's position/logic.
      */
-    public void onUpdate()
-    {
-        super.onUpdate();
-
-      
+    public void onUpdate() {
+    	this.setSize(0.75F, 1.15F);
+	super.onUpdate();
     }
-
-  
 
     /**
      * Returns the sound this mob makes while it's alive.
