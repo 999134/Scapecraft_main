@@ -1,6 +1,7 @@
 package net.minecraft.src;
 import java.util.Random;
 
+import static net.minecraft.src.ExtendedPlayer.getLevel;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
