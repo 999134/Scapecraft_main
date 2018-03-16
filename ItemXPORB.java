@@ -1,6 +1,5 @@
 package net.minecraft.src;
 
-import org.lwjgl.input.Keyboard;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -28,7 +27,7 @@ public class ItemXPORB extends Item {
 	}
 
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (Keyboard.isKeyDown(Keyboard.KEY_RSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+		if (entityplayer.isSneaking()) {
 			ExtendedPlayer.get(entityplayer).addXp(itemstack.stackSize);
 			itemstack.stackSize = 0;
 			return itemstack;

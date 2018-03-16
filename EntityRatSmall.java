@@ -94,12 +94,10 @@ public class EntityRatSmall extends EntityMob
     /**
      * Called to update the entity's position/logic.
      */
-    public void onUpdate()
-    {
-        super.onUpdate();
-
-      
-    }
+	public void onUpdate() {
+		this.setSize(0.3F, 0.35F);
+		super.onUpdate();
+	}
 
   
 

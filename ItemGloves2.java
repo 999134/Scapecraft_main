@@ -50,8 +50,9 @@ public ItemGloves2(int i)
   			props.addTcd(-100);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 10) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 10) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(1);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -74,8 +75,9 @@ public ItemGloves2(int i)
   			props.addTcd(-160);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 40) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 40) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(1);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -99,8 +101,9 @@ public ItemGloves2(int i)
   			props.addTcd(-160);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 40) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 40) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(2);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -126,8 +129,9 @@ public ItemGloves2(int i)
   			props.addTcd(-160);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 20) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 20) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(2);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -152,8 +156,9 @@ public ItemGloves2(int i)
   			props.addTcd(-250);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 30) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 30) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(3);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -181,8 +186,9 @@ public ItemGloves2(int i)
   			props.addTcd(-250);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 60) {
+    	if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 60) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(3);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -211,8 +217,9 @@ public ItemGloves2(int i)
   			props.addTcd(-250);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 75) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 75) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(10);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -243,8 +250,9 @@ public ItemGloves2(int i)
   			props.addTcd(-500);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 92) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 92) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(50);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  

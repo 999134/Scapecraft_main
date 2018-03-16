@@ -46,7 +46,7 @@ public class mod_BlocksGalore extends BaseMod {
 	 public static EnumToolMaterial STAKEM = EnumHelper.addToolMaterial("Stake", 3, 150, 15.0F, 1.0F, 40);
 	 public static EnumToolMaterial PITCHFORK = EnumHelper.addToolMaterial("PitchFork", 1, 7500, 3.0F, 3.0F, 100);
 	 public static EnumToolMaterial SCYTHE = EnumHelper.addToolMaterial("Scythe", 1, 5000000, 6.0F, 7.0F, 100);
-	 public static EnumToolMaterial RAPIERM = EnumHelper.addToolMaterial("RAPIER", 3, 6000000, 15.0F, 21.0F, 30);
+	 public static EnumToolMaterial RAPIERM = EnumHelper.addToolMaterial("RAPIER", 3, 600000, 15.0F, 21.0F, 30);
 	 public static EnumToolMaterial MAULM = EnumHelper.addToolMaterial("MAUL", 3, 600000, 15.0F, 30.0F, 30);	 
 	 public static EnumToolMaterial DRAGOND = EnumHelper.addToolMaterial("DRAGOND", 3, 4000, 15.0F, 5.0F, 30);
 	 public static EnumToolMaterial DRAGONB = EnumHelper.addToolMaterial("DRAGONB", 3, 5500, 15.0F, 11.0F, 30);

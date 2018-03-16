@@ -94,12 +94,10 @@ public class EntityCaveCrawler extends EntityMob
     /**
      * Called to update the entity's position/logic.
      */
-    public void onUpdate()
-    {
-        super.onUpdate();
-
-      
-    }
+	public void onUpdate() {
+		this.setSize(1.75F, 0.8F);
+		super.onUpdate();
+	}
 
   
 

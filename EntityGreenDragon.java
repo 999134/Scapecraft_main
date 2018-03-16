@@ -121,10 +121,9 @@ public class EntityGreenDragon extends EntityMob
         this.dataWatcher.addObject(16, new Byte((byte)0));
     }
 
-    public void onUpdate()
-    {
-        super.onUpdate();
-
+	public void onUpdate() {
+		this.setSize(3.5F, 3F);
+		super.onUpdate();
         if (!this.worldObj.isRemote)
         {
             this.setBesideClimbableBlock(this.isCollidedHorizontally);
