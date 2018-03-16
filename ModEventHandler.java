@@ -42,7 +42,14 @@ public class ModEventHandler {
 	public void load(FMLInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(new ModEventHandler());
 	}
-
+	
+	@ForgeSubscribe
+	public void onJoinWorld(EntityJoinWorldEvent event) {
+		if(event.entity instanceof EntityHanging) {
+			ReflectionHelper.setPrivateValue(Entity.class, event.entity, true, "field_83001_bt", "invulnerable");
+		}
+	}
+	
 	@ForgeSubscribe
 	public void onEntityConstructing(EntityConstructing event) {
 		if (event.entity instanceof EntityPlayer
