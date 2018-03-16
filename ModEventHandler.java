@@ -1,5 +1,6 @@
 package net.minecraft.src;
 
+import static net.minecraft.src.ExtendedPlayer.getLevel;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -37,10 +38,16 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
 public class ModEventHandler {
-//	ExtendedPlayer extendedPlayer = null;
 
 	public void load(FMLInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(new ModEventHandler());
+	}
+	
+	@ForgeSubscribe
+	public void onJoinWorld(EntityJoinWorldEvent event) {
+		if (event.entity instanceof EntityHanging) {
+			ReflectionHelper.setPrivateValue(Entity.class, event.entity, true, "field_83001_bt", "invulnerable");
+		}
 	}
 
 	@ForgeSubscribe
