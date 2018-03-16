@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import net.minecraft.src.ExtendedPlayer.getLevel;
+import static net.minecraft.src.ExtendedPlayer.getLevel;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
