@@ -326,11 +326,9 @@ public class mod_Flower extends BaseMod {
 		// new Object[] {" X ","XYX", Character.valueOf('X'),
 		// Block.wood,Character.valueOf('Y'),Block.torchWood});
 
-		GameRegistry.addRecipe(new ItemStack(mod_Flower.TombKey, 2),
-				new Object[] { "XYZ", "ABC", " U ", Character.valueOf('X'), mod_Flower.AhrimKey, Character.valueOf('Y'),
-						mod_Flower.AkrisaeKey, Character.valueOf('Z'), mod_Flower.DharokKey, Character.valueOf('A'),
-						mod_Flower.KarilKey, Character.valueOf('B'), mod_Flower.GuthanKey, Character.valueOf('C'),
-						mod_Flower.ToragKey, Character.valueOf('U'), mod_Flower.VeracKey });
+		GameRegistry.addShapelessRecipe(new ItemStack(mod_Flower.TombKey, 2),
+				new Object[] {mod_Flower.AhrimKey, mod_Flower.AkrisaeKey, mod_Flower.DharokKey, mod_Flower.KarilKey,
+						mod_Flower.GuthanKey, mod_Flower.ToragKey, mod_Flower.VeracKey });
 
 		GameRegistry.addSmelting(cabbagepieuncooked.itemID, new ItemStack(cabbagepie), 1.0F);
 		GameRegistry.addSmelting(meatpieuncooked.itemID, new ItemStack(meatpie), 1.0F);
