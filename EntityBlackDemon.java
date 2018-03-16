@@ -205,7 +205,7 @@ public class EntityBlackDemon extends EntityMob
         
         int quickvar = rand.nextInt(2000) + 1;
         int quickvarl = rand.nextInt(2000) + 1;
-        int quickvar1 = rand.nextInt(700) + 1;
+        int quickvar7 = rand.nextInt(700) + 1;
         int quickvar2 = rand.nextInt(20) + 1;
         int quickvar3 = rand.nextInt(5) + 1;
         int quickvar4 = rand.nextInt(5) + 1;
@@ -218,7 +218,7 @@ public class EntityBlackDemon extends EntityMob
         	MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Black Demon dropped a chaotic maul!")));
             
         }
-        if(quickvarl <= 1){
+        if(quickvarl <= 7){
             
         	entityDropItem(new ItemStack(mod_BlocksGalore.RAPIER), 1);
         	MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Black Demon dropped a chaotic rapier!")));

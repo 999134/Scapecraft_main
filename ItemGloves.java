@@ -50,8 +50,9 @@ public ItemGloves(int i)
   			props.addTcd(-100);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 30) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 30) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(1);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -74,8 +75,9 @@ public ItemGloves(int i)
   			props.addTcd(-160);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 50) {
+    	if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 50) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(1);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -90,8 +92,9 @@ public ItemGloves(int i)
   		else {EntityPlayer.addChatMessage("\u00a7EYou need level 10 Thieving to attempt to pickpocket from this NPC");}
   		}return true;}
       
-      
-      if (par3EntityLivingBase instanceof EntityGuard)
+      if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (par3EntityLivingBase instanceof EntityGuard)
       {	  if(!EntityPlayer.worldObj.isRemote) {
     	  ExtendedPlayer props = ExtendedPlayer.get(EntityPlayer);		
   		if (props.getTheifxp() > 950){{
@@ -126,8 +129,9 @@ public ItemGloves(int i)
   			props.addTcd(-160);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 55) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 55) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(2);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -152,8 +156,9 @@ public ItemGloves(int i)
   			props.addTcd(-250);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 60) {
+    	if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else  if (rate > 60) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(3);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -181,8 +186,9 @@ public ItemGloves(int i)
   			props.addTcd(-250);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 65) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 65) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(3);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  
@@ -211,8 +217,9 @@ public ItemGloves(int i)
   			props.addTcd(-250);
     	 int rate = randInt(1,100);
     	 int loot = randInt(1,1000);
-    	 
-    	 if (rate > 85) {
+    	 if (EntityPlayer.inventory.getFirstEmptyStack() == -1) {
+						EntityPlayer.addChatMessage("\u00a7EYour inventory is full.");
+					} else if (rate > 85) {
     	 ExtendedPlayer.get(EntityPlayer).addTXp(10);
     	  EntityPlayer.addChatMessage("\u00a7ESuccessful thieving attempt");
     	  

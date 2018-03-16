@@ -117,12 +117,10 @@ public class EntityIceGiant extends EntityMob
     /**
      * Called to update the entity's position/logic.
      */
-    public void onUpdate()
-    {
-        super.onUpdate();
-
-      
-    }
+	public void onUpdate() {
+		this.setSize(0.9F, 2.5F);
+		super.onUpdate();
+	}
 
     
 

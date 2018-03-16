@@ -27,10 +27,16 @@ public ItemHAXORB(int i)
    return false;
   }
 
-  public ItemStack onItemRightClick(ItemStack itemstack, World world,
-			EntityPlayer entityplayer){
-	
-	{
+  public ItemStack onItemRightClick(ItemStack itemstack, World world,EntityPlayer entityplayer)
+  {
+	  if (entityplayer.isSneaking()) {
+		  ExtendedPlayer.get(entityplayer).addXp(itemstack.stackSize*10000);
+		  ExtendedPlayer.get(entityplayer).addAXp(itemstack.stackSize*10000);
+		  ExtendedPlayer.get(entityplayer).addMXp(itemstack.stackSize*10000);
+		  ExtendedPlayer.get(entityplayer).addTXp(itemstack.stackSize*10000);
+ 		  itemstack.stackSize = 0;
+ 		  return itemstack;
+	  } else {
 		ExtendedPlayer.get(entityplayer).addXp(10000);
 		ExtendedPlayer.get(entityplayer).addAXp(10000);
 		ExtendedPlayer.get(entityplayer).addMXp(10000);

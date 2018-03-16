@@ -1,5 +1,7 @@
 package net.minecraft.src;
 
+import net.minecraft.src.ExtendedPlayer.getLevel;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.block.Block;
@@ -81,62 +83,11 @@ public class ModEventHandler {
 //		}
 //	}
 
-	//@ForgeSubscribe(priority=EventPriority.LOWEST)
+	@ForgeSubscribe
 	public void onNameFormat(PlayerEvent.NameFormat event) {
-	//	if (extendedPlayer != null) {
 		ExtendedPlayer props = ExtendedPlayer.get(event.entityPlayer);
-			if (props.getCombatxp() >= 0*2 && props.getCombatxp() < 5*2) {event.displayname = event.displayname + "\u00a7E[1]\u00A7f";}
-			else if (props.getCombatxp() >= 5*2 && props.getCombatxp() < 15*2) {event.displayname = event.displayname + "\u00a7E[2]\u00A7f";}
-			else if (props.getCombatxp() >= 15*2 && props.getCombatxp() < 30*2) {event.displayname = event.displayname + "\u00a7E[3]\u00A7f";}
-			else if (props.getCombatxp() >= 30*2 && props.getCombatxp() < 50*2) {event.displayname = event.displayname + "\u00a7E[4]\u00A7f";}
-			else if (props.getCombatxp() >= 50*2 && props.getCombatxp() < 75*2) {event.displayname = event.displayname + "\u00a7E[5]\u00A7f";}
-			else if (props.getCombatxp() >= 75*2 && props.getCombatxp() < 90*2) {event.displayname = event.displayname + "\u00a7E[6]\u00A7f";}
-			else if (props.getCombatxp() >= 90*2 && props.getCombatxp() < 112*2) {event.displayname = event.displayname + "\u00a7E[7]\u00A7f";}
-			else if (props.getCombatxp() >= 112*2 && props.getCombatxp() < 124*2) {event.displayname = event.displayname + "\u00a7E[8]\u00A7f";}
-			else if (props.getCombatxp() >= 124*2 && props.getCombatxp() < 138*2) {event.displayname = event.displayname + "\u00a7E[9]\u00A7f";}
-			else if (props.getCombatxp() >= 138*2 && props.getCombatxp() < 151*2) {event.displayname = event.displayname + "\u00a7E[10]\u00A7f";}
-			else if (props.getCombatxp() >= 151*2 && props.getCombatxp() < 168*2) {event.displayname = event.displayname + "\u00a7E[11]\u00A7f";}
-			else if (props.getCombatxp() >= 168*2 && props.getCombatxp() < 185*2) {event.displayname = event.displayname + "\u00a7E[12]\u00A7f";}
-			else if (props.getCombatxp() >= 185*2 && props.getCombatxp() < 204*2) {event.displayname = event.displayname + "\u00a7E[13]\u00A7f";}
-			else if (props.getCombatxp() >= 204*2 && props.getCombatxp() < 226*2) {event.displayname = event.displayname + "\u00a7E[14]\u00A7f";}
-			else if (props.getCombatxp() >= 226*2 && props.getCombatxp() < 249*2) {event.displayname = event.displayname + "\u00a7E[15]\u00A7f";}
-			else if (props.getCombatxp() >= 498 && props.getCombatxp() < 600) {event.displayname = event.displayname + "\u00a7E[16]\u00A7f";}
-			else if (props.getCombatxp() >= 600 && props.getCombatxp() < 720) {event.displayname = event.displayname + "\u00a7E[17]\u00A7f";}
-			else if (props.getCombatxp() >= 720 && props.getCombatxp() < 850) {event.displayname = event.displayname + "\u00a7E[18]\u00A7f";}
-			else if (props.getCombatxp() >= 850 && props.getCombatxp() < 950) {event.displayname = event.displayname + "\u00a7E[19]\u00A7f";}
-			else if (props.getCombatxp() >= 950 && props.getCombatxp() < 1060) {event.displayname = event.displayname + "\u00a7E[20]\u00A7f";}
-			else if (props.getCombatxp() >= 1060 && props.getCombatxp() < 1200) {event.displayname = event.displayname + "\u00a7E[21]\u00A7f";}
-			else if (props.getCombatxp() >= 1200 && props.getCombatxp() < 1700) {event.displayname = event.displayname + "\u00a7E[22]\u00A7f";}
-			else if (props.getCombatxp() >= 1700 && props.getCombatxp() < 2300) {event.displayname = event.displayname + "\u00a7E[23]\u00A7f";}
-			else if (props.getCombatxp() >= 2300 && props.getCombatxp() < 3000) {event.displayname = event.displayname + "\u00a7E[24]\u00A7f";}
-			else if (props.getCombatxp() >= 3000 && props.getCombatxp() < 3800) {event.displayname = event.displayname + "\u00a7E[25]\u00A7f";}
-			else if (props.getCombatxp() >= 3800 && props.getCombatxp() < 4700) {event.displayname = event.displayname + "\u00a7E[26]\u00A7f";}
-			else if (props.getCombatxp() >= 4700 && props.getCombatxp() < 6100) {event.displayname = event.displayname + "\u00a7E[27]\u00A7f";}
-			else if (props.getCombatxp() >= 6100 && props.getCombatxp() < 7320) {event.displayname = event.displayname + "\u00a7E[28]\u00A7f";}
-			else if (props.getCombatxp() >= 7320 && props.getCombatxp() < 8784) {event.displayname = event.displayname + "\u00a7E[29]\u00A7f";}
-			else if (props.getCombatxp() >= 8784 && props.getCombatxp() < 10540) {event.displayname = event.displayname + "\u00a7E[30]\u00A7f";}
-			else if (props.getCombatxp() >= 10540 && props.getCombatxp() < 12648) {event.displayname = event.displayname + "\u00a7E[31]\u00A7f";}
-			else if (props.getCombatxp() >= 12648 && props.getCombatxp() < 15178) {event.displayname = event.displayname + "\u00a7E[32]\u00A7f";}
-			else if (props.getCombatxp() >= 15178 && props.getCombatxp() < 18214) {event.displayname = event.displayname + "\u00a7E[33]\u00A7f";}
-			else if (props.getCombatxp() >= 18214 && props.getCombatxp() < 21857) {event.displayname = event.displayname + "\u00a7E[34]\u00A7f";}
-			else if (props.getCombatxp() >= 21857 && props.getCombatxp() < 26228) {event.displayname = event.displayname + "\u00a7E[35]\u00A7f";}
-			else if (props.getCombatxp() >= 26228 && props.getCombatxp() < 31474) {event.displayname = event.displayname + "\u00a7E[36]\u00A7f";}
-			else if (props.getCombatxp() >= 31474 && props.getCombatxp() < 37769) {event.displayname = event.displayname + "\u00a7E[37]\u00A7f";}
-			else if (props.getCombatxp() >= 37769 && props.getCombatxp() < 45323) {event.displayname = event.displayname + "\u00a7E[38]\u00A7f";}
-			else if (props.getCombatxp() >= 45323 && props.getCombatxp() < 54388) {event.displayname = event.displayname + "\u00a7E[39]\u00A7f";}
-			else if (props.getCombatxp() >= 54388 && props.getCombatxp() < 65265) {event.displayname = event.displayname + "\u00a7E[40]\u00A7f";}
-			else if (props.getCombatxp() >= 65265 && props.getCombatxp() < 78319) {event.displayname = event.displayname + "\u00a7E[41]\u00A7f";}
-			else if (props.getCombatxp() >= 78319 && props.getCombatxp() < 93982) {event.displayname = event.displayname + "\u00a7E[42]\u00A7f";}
-			else if (props.getCombatxp() >= 93982 && props.getCombatxp() < 112779) {event.displayname = event.displayname + "\u00a7E[43]\u00A7f";}
-			else if (props.getCombatxp() >= 112779 && props.getCombatxp() < 135335) {event.displayname = event.displayname + "\u00a7E[44]\u00A7f";}
-			else if (props.getCombatxp() >= 135335 && props.getCombatxp() < 162402) {event.displayname = event.displayname + "\u00a7E[45]\u00A7f";}
-			else if (props.getCombatxp() >= 162402 && props.getCombatxp() < 194822) {event.displayname = event.displayname + "\u00a7E[46]\u00A7f";}
-			else if (props.getCombatxp() >= 194822 && props.getCombatxp() < 233859) {event.displayname = event.displayname + "\u00a7E[47]\u00A7f";}
-			else if (props.getCombatxp() >= 280631 && props.getCombatxp() < 280631) {event.displayname = event.displayname + "\u00a7E[48]\u00A7f";}
-			else if (props.getCombatxp() >= 336757 && props.getCombatxp() < 336757) {event.displayname = event.displayname + "\u00a7E[49]\u00A7f";}
-			else if (props.getCombatxp() >= 336757) {event.displayname = event.displayname + "\u00A7C[50]\u00A7f";}
-			
-		}
+			event.displayname = "\u00a7E[" + getLevel(props.getCombatxp()) + "]\u00A7f" + event.displayname;
+	}
 	
 
 	
