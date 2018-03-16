@@ -203,33 +203,36 @@ public class EntityBlackDemon extends EntityMob
  
     protected void dropFewItems(boolean par1, int par2){
         
-        int quickvar = rand.nextInt(2000) + 1;
-        int quickvarl = rand.nextInt(2000) + 1;
-        int quickvar7 = rand.nextInt(700) + 1;
-        int quickvar2 = rand.nextInt(20) + 1;
-        int quickvar3 = rand.nextInt(5) + 1;
-        int quickvar4 = rand.nextInt(5) + 1;
-        int quickvar6 = rand.nextInt(40) + 1;
-        int quickvar5 = rand.nextInt(700) + 1;
-         
-        if(quickvar <= 1){
-         
-        	entityDropItem(new ItemStack(mod_BlocksGalore.Cmaul), 1);
-        	MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Black Demon dropped a chaotic maul!")));
-            
-        }
-        if(quickvarl <= 7){
-            
-        	entityDropItem(new ItemStack(mod_BlocksGalore.RAPIER), 1);
-        	MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Black Demon dropped a chaotic rapier!")));
-            
-        }
-        if(quickvar1 <= 1){
-            
-        	entityDropItem(new ItemStack(mod_BlocksGalore.DBA), 1);
-        	MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("A Black Demon dropped a dragon battleaxe!")));
-            
-        }
+        	int quickvar = rand.nextInt(2000) + 1;
+		int quickvar1 = rand.nextInt(2000) + 1;
+		int quickvar7 = rand.nextInt(700) + 1;
+		int quickvar2 = rand.nextInt(20) + 1;
+		int quickvar3 = rand.nextInt(5) + 1;
+		int quickvar4 = rand.nextInt(5) + 1;
+		int quickvar6 = rand.nextInt(40) + 1;
+		int quickvar5 = rand.nextInt(700) + 1;
+
+		if (quickvar <= 1) {
+
+			entityDropItem(new ItemStack(mod_BlocksGalore.Cmaul), 1);
+			MinecraftServer.getServer().getConfigurationManager()
+					.sendChatMsg((new ChatMessageComponent().addText("A Black Demon dropped a chaotic maul!")));
+
+		}
+		if (quickvar1 <= 1) {
+
+			entityDropItem(new ItemStack(mod_BlocksGalore.RAPIER), 1);
+			MinecraftServer.getServer().getConfigurationManager()
+					.sendChatMsg((new ChatMessageComponent().addText("A Black Demon dropped a chaotic rapier!")));
+
+		}
+		if (quickvar7 <= 1) {
+
+			entityDropItem(new ItemStack(mod_BlocksGalore.DBA), 1);
+			MinecraftServer.getServer().getConfigurationManager()
+					.sendChatMsg((new ChatMessageComponent().addText("A Black Demon dropped a dragon battleaxe!")));
+
+		}
 if(quickvar2 <= 1){
             
         	entityDropItem(new ItemStack(mod_BlocksGalore.Runeore), 1);
