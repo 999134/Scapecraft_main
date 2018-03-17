@@ -235,7 +235,60 @@ public int getTheifxp(){
 	return theifxp;
 }
 public int getTheifcd(){return theifcd;}
-
+public static int getLevel(int exp) {
+		int level;
+		if (exp >= 0 && exp < 10) { return 1; }
+		else if (exp >= 10 && exp < 30) { return 2; }
+		else if (exp >= 30 && exp < 60) { return 3; }
+		else if (exp >= 60 && exp < 100) { return 4; }
+		else if (exp >= 100 && exp < 150) { return 5; }
+		else if (exp >= 150 && exp < 180) { return 6; }
+		else if (exp >= 180 && exp < 224) { return 7; }
+		else if (exp >= 224 && exp < 248) { return 8; }
+		else if (exp >= 248 && exp < 276) { return 9; }
+		else if (exp >= 276 && exp < 302) { return 10; }
+		else if (exp >= 302 && exp < 336) { return 11; }
+		else if (exp >= 336 && exp < 370) { return 12; }
+		else if (exp >= 370 && exp < 408) { return 13; }
+		else if (exp >= 408 && exp < 452) { return 14; }
+		else if (exp >= 452 && exp < 498) { return 15; }
+		else if (exp >= 498 && exp < 600) { return 16; }
+		else if (exp >= 600 && exp < 720) { return 17; }
+		else if (exp >= 720 && exp < 850) { return 18; }
+		else if (exp >= 850 && exp < 950) { return 19; }
+		else if (exp >= 950 && exp < 1060) { return 20; }
+		else if (exp >= 1060 && exp < 1200) { return 21; }
+		else if (exp >= 1200 && exp < 1700) { return 22; }
+		else if (exp >= 1700 && exp < 2300) { return 23; }
+		else if (exp >= 2300 && exp < 3000) { return 24; }
+		else if (exp >= 3000 && exp < 3800) { return 25; }
+		else if (exp >= 3800 && exp < 4700) { return 26; }
+		else if (exp >= 4700 && exp < 6100) { return 27; }
+		else if (exp >= 6100 && exp < 7320) { return 28; }
+		else if (exp >= 7320 && exp < 8784) { return 29; }
+		else if (exp >= 8784 && exp < 10540) { return 30; }
+		else if (exp >= 10540 && exp < 12648) { return 31; }
+		else if (exp >= 12648 && exp < 15178) { return 32; }
+		else if (exp >= 15178 && exp < 18214) { return 33; }
+		else if (exp >= 18214 && exp < 21857) { return 34; }
+		else if (exp >= 21857 && exp < 26228) { return 35; }
+		else if (exp >= 26228 && exp < 31474) { return 36; }
+		else if (exp >= 31474 && exp < 37769) { return 37; }
+		else if (exp >= 37769 && exp < 45323) { return 38; }
+		else if (exp >= 45323 && exp < 54388) { return 39; }
+		else if (exp >= 54388 && exp < 65265) { return 40; }
+		else if (exp >= 65265 && exp < 78319) { return 41; }
+		else if (exp >= 78319 && exp < 93982) { return 42; }
+		else if (exp >= 93982 && exp < 112779) { return 43; }
+		else if (exp >= 112779 && exp < 135335) { return 44; }
+		else if (exp >= 135335 && exp < 162402) { return 45; }
+		else if (exp >= 162402 && exp < 233859) { return 46; }
+		else if (exp >= 233859 && exp < 280631) { return 47; }
+		else if (exp >= 280631 && exp < 336757) { return 48; }
+		else if (exp >= 336757 && exp < 404108) { return 49; }
+		else if (exp >= 404108) { return 50; }
+		else { return -1; }
+	}
 public final void sync()
 {
 ByteArrayOutputStream bos = new ByteArrayOutputStream(24);
