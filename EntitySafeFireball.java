@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 
 public class EntitySafeFireball extends EntityFireball {
 	public int ExplosionPower = 0;
+	public float fireballDamage = 10.0F;
 
 	public EntitySafeFireball(World par1World) {
 		super(par1World);
@@ -36,7 +37,7 @@ public class EntitySafeFireball extends EntityFireball {
         if (!this.worldObj.isRemote) {
             if (par1MovingObjectPosition.entityHit != null && !(par1MovingObjectPosition.entityHit instanceof EntityHanging)) {
                 par1MovingObjectPosition.entityHit
-                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), 6.0F);
+                        .attackEntityFrom(DamageSource.causeFireballDamage(this, this.shootingEntity), fireballDamage);
             }
             this.worldObj.newExplosion((Entity) null, this.posX, this.posY, this.posZ, (float) this.ExplosionPower, true,
                     this.worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing"));
