@@ -137,7 +137,7 @@ public class ItemAhrimStaff extends ItemSword {
 					fireball.accelerationZ = look.zCoord * 0.1;
 					world.spawnEntityInWorld(fireball);
 					float chance = r.nextFloat();
-					if (chance <= 0.001f)
+					if (chance <= -0.001f)
 						itemstack.setItemDamage(300);
 					else
 						itemstack.setItemDamage(200);

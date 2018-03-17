@@ -29,7 +29,7 @@ public class ItemCrystalBow extends ItemBow
     {
         super(par1);
         this.maxStackSize = 1;
-        this.setMaxDamage(8000);
+        this.setMaxDamage(14000);
         this.setCreativeTab(CreativeTabs.tabCombat);
         this.setFull3D();
     }

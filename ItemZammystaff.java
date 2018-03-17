@@ -79,7 +79,7 @@ public class ItemZammystaff extends Item {
 
 					float chance = r.nextFloat();
 
-					if (chance <= 0.01f)
+					if (chance <= 0.005f)
 						itemstack.setItemDamage(300);
 
 					else

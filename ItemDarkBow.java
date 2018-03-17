@@ -28,7 +28,7 @@ public class ItemDarkBow extends ItemBow
     {
         super(par1);
         this.maxStackSize = 1;
-        this.setMaxDamage(20000);
+        this.setMaxDamage(50000);
         this.setCreativeTab(CreativeTabs.tabCombat);
         this.setFull3D();
     }

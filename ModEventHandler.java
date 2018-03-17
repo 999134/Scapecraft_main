@@ -4,8 +4,10 @@ import static net.minecraft.src.ExtendedPlayer.getLevel;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityHanging;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -537,6 +539,26 @@ player.removePotionEffect(Potion.field_76434_w.id);
 					flag1=true;
 				}
 			}
+			
+			if (boots != null && legs != null && chest != null
+					&& helmet != null) {
+				if (boots.getItem() == mod_phat.dragonBoots
+						&& legs.getItem() == mod_phat.dragonLeggings
+						&& chest.getItem() == mod_phat.graniteChestplate
+						&& helmet.getItem() == mod_phat.dragonHelmet) {
+					if (propsa.getCombatxp() < 138*2) {player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(20.0D + 16.0D);}							
+					if (propsa.getCombatxp() >= 138*2 && propsa.getCombatxp() < 226*2 ){player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(24.0D + 16.0D);}
+					if (propsa.getCombatxp() >= 226*2 && propsa.getCombatxp() < 950 ){player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(32.0D + 16.0D);}
+					if (propsa.getCombatxp() >= 950 && propsa.getCombatxp() < 3000 ){player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(40.0D + 16.0D);}
+					if (propsa.getCombatxp() >= 3000 && propsa.getCombatxp() < 8784 ){player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(48.0D + 16.0D);}
+					if (propsa.getCombatxp() >= 8784 && propsa.getCombatxp() < 21857 ){player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(56.0D + 16.0D);}
+					if (propsa.getCombatxp() >= 21857 && propsa.getCombatxp() < 54388 ){player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(64.0D + 16.0D);}
+					if (propsa.getCombatxp() >= 54388 && propsa.getCombatxp() < 135335 ){player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(72.0D + 16.0D);}
+					if (propsa.getCombatxp() >= 135335 && propsa.getCombatxp() < 404108 ){player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(80.0D + 16.0D);}
+					if (propsa.getCombatxp() >= 404108 ){player.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(96.0D + 16.0D);}
+					flag1=true;
+				}
+			}
 
 			if (boots != null && legs != null && chest != null
 					&& helmet != null) {
@@ -902,13 +924,23 @@ player.removePotionEffect(Potion.field_76434_w.id);
 		}	
 		if (player.getHeldItem().itemID == mod_BlocksGalore.DDS.itemID || player.getHeldItem().itemID == mod_BlocksGalore.DD.itemID) {
 			if (ItemDD.activespecialdd == 1||ItemDDS.activespecialdds == 1) {
-				event.ammount = event.ammount*2+8.0F;
+				if (event.entity instanceof EntityPlayer)
+				{
+					event.ammount = event.ammount*2+3.0F;
+					player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,20, 5));
+					player.addChatMessage("\u00a7EDouble Strike!");
+					ItemDD.activespecialdd = 0;
+					ItemDDS.activespecialdds = 0;	
+				}
+				else
+				event.ammount = event.ammount*3+8.0F;
 				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id,20, 5));
 				player.addChatMessage("\u00a7EDouble Strike!");
 				ItemDD.activespecialdd = 0;
 				ItemDDS.activespecialdds = 0;
 			}
 		}	
+		
 		if (player.getHeldItem().itemID == mod_BlocksGalore.dlong.itemID) {
 			if (Itemdlong.activespecialdlong == 1) {
 				event.ammount = event.ammount*2+5.0F;			
@@ -1006,8 +1038,10 @@ player.removePotionEffect(Potion.field_76434_w.id);
 	             else {entity.addPotionEffect(new PotionEffect(Potion.heal.id, 7, 2));}}}}}
 			
 			
-			
-			
+			if (event.entity instanceof EntityGuthan) {entity.addPotionEffect(new PotionEffect(Potion.regeneration.id, 100, 0));}
+			if (event.entity instanceof EntityVerac) {player.addPotionEffect(new PotionEffect(Potion.harm.id, 7, 0));}
+			if (event.entity instanceof EntityDharok) {
+				if( entity.getHealth() < 10.0F ){	event.ammount += 15;	}}
 			
 			ExtendedPlayer props = ExtendedPlayer.get(player);		
 			if (props.getCombatxp() < 8784){
