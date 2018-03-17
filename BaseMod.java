@@ -16,7 +16,6 @@ import static cpw.mods.fml.relauncher.Side.CLIENT;
 
 import java.util.Map;
 import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.*;
 import net.minecraft.client.entity.EntityClientPlayerMP;

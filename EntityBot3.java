@@ -111,12 +111,10 @@ public class EntityBot3 extends EntityMob
     /**
      * Called to update the entity's position/logic.
      */
-    public void onUpdate()
-    {
-        super.onUpdate();
-
-      
-    }
+	public void onUpdate() {
+		this.setSize(0.6F, 2.2F);
+		super.onUpdate();
+	}
 
  
 

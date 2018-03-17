@@ -102,12 +102,10 @@ public class EntityAkrisae extends EntityMob
     /**
      * Called to update the entity's position/logic.
      */
-    public void onUpdate()
-    {
-        super.onUpdate();
-
-      
-    }
+	public void onUpdate() {
+		this.setSize(0.65F, 2.8F);
+		super.onUpdate();
+	}
 
  
 
