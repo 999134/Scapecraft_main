@@ -262,28 +262,28 @@ public class EntityKK extends EntityMob
         int quickvar11 = rand.nextInt(15) + 1;
                  
         if(quickvar  <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.DryMace), 1);
-        MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalaphite King has dropped a Drygore mace!")));}
+        MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalphite King has dropped a Drygore mace!")));}
         if(quickvar1 <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.DryRapier), 1);
-        MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalaphite King has dropped a Drygore rapier!")));}
+        MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalphite King has dropped a Drygore rapier!")));}
         if(quickvar2 <= 1){          
         	entityDropItem(new ItemStack(mod_BlocksGalore.Addyore), 2);
         	entityDropItem(new ItemStack(Item.ingotGold), 2);
-        	MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalaphite King has been slain, impressive!")));}
+        	MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalphite King has been slain, impressive!")));}
 		if(quickvar3 <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.DryLong), 1);
-		MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalaphite King has dropped a Drygore Long!")));}
+		MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalphite King has dropped a Drygore Long!")));}
 		if(quickvar4 <= 1){entityDropItem(new ItemStack(mod_phat.runeLeggings), 1);}
 		if(quickvar5 <= 1){entityDropItem(new ItemStack(mod_phat.runeChestplate), 1);}
 		if(quickvar7 <= 1){entityDropItem(new ItemStack(mod_phat.runeHelmet), 1);}
 		if(quickvar6 <= 1){entityDropItem(new ItemStack(mod_phat.runeBoots), 1);}
 		if(quickvar8 <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.DDS), 1);
-		MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalaphite King has dropped a dragon dagger!")));}
+		MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalphite King has dropped a dragon dagger!")));}
 		if(quickvar9 <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.SandSpawn), 1);
-		MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalaphite King has dropped a sand spawner!")));}    
+		MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalphite King has dropped a sand spawner!")));}    
 		if(quickvar10 <= 1){entityDropItem(new ItemStack(mod_BlocksGalore.Dragonaxe), 1);
-		MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalaphite King has dropped a Dragon axe!")));}
+		MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalphite King has dropped a Dragon axe!")));}
         
 		if(quickvar11 <= 1){entityDropItem(new ItemStack(mod_phat.dragonBoots), 1);
-		MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalaphite King has dropped some Dragon boots!")));}
+		MinecraftServer.getServer().getConfigurationManager().sendChatMsg((new ChatMessageComponent().addText("The Kalphite King has dropped some Dragon boots!")));}
         
 		
 
