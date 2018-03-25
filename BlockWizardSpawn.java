@@ -40,7 +40,7 @@ public class BlockWizardSpawn extends Block
     	 
     	
 		EntityWizard entity = new EntityWizard(world);
-		entity.setLocationAndAngles(x, y + 1, z,
+		entity.setLocationAndAngles(x+0.5, y + 1, z+0.5,
 				world.rand.nextFloat() * 360.0F, 0.0F);
 		world.spawnEntityInWorld(entity);
 		 world.setBlock(x, y+1, z, 0);

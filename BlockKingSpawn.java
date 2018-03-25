@@ -34,7 +34,7 @@ public class BlockKingSpawn extends Block
 	{
     	   world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
 		EntityKing entity = new EntityKing(world);
-		entity.setLocationAndAngles(x, y + 1, z+1,
+		entity.setLocationAndAngles(x+0.5, y + 1, z+0.5,
 				world.rand.nextFloat() * 360.0F, 0.0F);
 		world.spawnEntityInWorld(entity);
 		 world.setBlock(x, y+1, z, 0);
