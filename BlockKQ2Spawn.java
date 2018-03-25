@@ -25,7 +25,7 @@ public class BlockKQ2Spawn extends Block
 	{
 
 		EntityKQ2 entity = new EntityKQ2(world);
-		entity.setLocationAndAngles(x+0.5, y + 1, z+0.5,
+		entity.setLocationAndAngles(x, y + 1, z+1,
 				world.rand.nextFloat() * 360.0F, 0.0F);
 		world.spawnEntityInWorld(entity);
 		  world.setBlock(x, y+1, z, 0);

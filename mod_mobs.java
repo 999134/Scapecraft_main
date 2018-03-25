@@ -1,5 +1,5 @@
 package net.minecraft.src;
- 
+
 import java.util.Map;
 
 import potato.TestClientProxy;
@@ -24,180 +24,188 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod.Instance;
 
-@Mod( modid = "mod_mobs", name="mod_mobs", version="1.6.4")
+@Mod(modid = "mod_mobs", name = "mod_mobs", version = "1.6.4")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
-public class mod_mobs
-{
- 
-        
- 
-  
-        
- @SidedProxy(clientSide="potato.TestClientProxy", serverSide="potato.TestCommonProxy") 
- public static TestCommonProxy proxy;
-       
- 
- @Instance
- public static mod_mobs instance;
-        
- @Init
-        public void load(FMLInitializationEvent evt) {
-           proxy.registerRenderThings();   
-           EntityRegistry.registerGlobalEntityID(EntityMagicBoat.class, "MagicBoat", EntityRegistry.findGlobalUniqueEntityId());
-   		EntityRegistry.registerModEntity(EntityMagicBoat.class, "MagicBoat", 0, this, 128, 1, true);
-   		LanguageRegistry.instance().addStringLocalization("entity.MagicBoat.mod_mobs.name", "Magic Boat");
-   		
-        EntityRegistry.registerGlobalEntityID(EntityBlackDragon.class, "BlackDragon", EntityRegistry.findGlobalUniqueEntityId());
+public class mod_mobs {
+
+	@SidedProxy(clientSide = "potato.TestClientProxy", serverSide = "potato.TestCommonProxy")
+	public static TestCommonProxy proxy;
+
+	@Instance
+	public static mod_mobs instance;
+
+	@Init
+	public void load(FMLInitializationEvent evt) {
+		proxy.registerRenderThings();
+		EntityRegistry.registerGlobalEntityID(EntityMagicBoat.class, "MagicBoat",
+				EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityMagicBoat.class, "MagicBoat", 0, this, 128, 1, true);
+		LanguageRegistry.instance().addStringLocalization("entity.MagicBoat.mod_mobs.name", "Magic Boat");
+
+		EntityRegistry.registerGlobalEntityID(EntityBlackDragon.class, "BlackDragon",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityBlackDragon.class, "BlackDragon", 1, this, 129, 2, true);
-		LanguageRegistry.instance().addStringLocalization("entity.BlackDragon.mod_mobs.name", "Black Dragon");   		
+		LanguageRegistry.instance().addStringLocalization("entity.BlackDragon.mod_mobs.name", "Black Dragon");
 		int id = 300; // has to be unique
 		EntityList.IDtoClassMapping.put(id, EntityBlackDragon.class);
 		EntityList.entityEggs.put(id, new EntityEggInfo(id, 0x85ff2c, 0xf6dc76));
-		
-		EntityRegistry.registerGlobalEntityID(EntityLootChest.class, "LootChest", EntityRegistry.findGlobalUniqueEntityId());
+
+		EntityRegistry.registerGlobalEntityID(EntityLootChest.class, "LootChest",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityLootChest.class, "LootChest", 2, this, 130, 3, true);
-		LanguageRegistry.instance().addStringLocalization("entity.LootChest.mod_mobs.name", "Loot Chest");   		
+		LanguageRegistry.instance().addStringLocalization("entity.LootChest.mod_mobs.name", "Loot Chest");
 		int id1 = 301; // has to be unique
 		EntityList.IDtoClassMapping.put(id1, EntityLootChest.class);
 		EntityList.entityEggs.put(id1, new EntityEggInfo(id1, 0xffd63a, 0xf6dc76));
-		
-		EntityRegistry.registerGlobalEntityID(EntityHillGiant.class, "HillGiant", EntityRegistry.findGlobalUniqueEntityId());
+
+		EntityRegistry.registerGlobalEntityID(EntityHillGiant.class, "HillGiant",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityHillGiant.class, "HillGiant", 3, this, 131, 4, true);
-		LanguageRegistry.instance().addStringLocalization("entity.HillGiant.mod_mobs.name", "Hill Giant");   		
+		LanguageRegistry.instance().addStringLocalization("entity.HillGiant.mod_mobs.name", "Hill Giant");
 		int id2 = 302; // has to be unique
 		EntityList.IDtoClassMapping.put(id2, EntityHillGiant.class);
 		EntityList.entityEggs.put(id2, new EntityEggInfo(id2, 0xffd63a, 0xf6dc76));
-		
-		EntityRegistry.registerGlobalEntityID(EntityBlackGuard.class, "BlackGuard", EntityRegistry.findGlobalUniqueEntityId());
+
+		EntityRegistry.registerGlobalEntityID(EntityBlackGuard.class, "BlackGuard",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityBlackGuard.class, "BlackGuard", 4, this, 132, 5, true);
-		LanguageRegistry.instance().addStringLocalization("entity.BlackGuard.mod_mobs.name", "Black Guard");   		
+		LanguageRegistry.instance().addStringLocalization("entity.BlackGuard.mod_mobs.name", "Black Guard");
 		int id3 = 303; // has to be unique
 		EntityList.IDtoClassMapping.put(id3, EntityBlackGuard.class);
 		EntityList.entityEggs.put(id3, new EntityEggInfo(id3, 0xffd63a, 0xf6dc76));
-		
-		EntityRegistry.registerGlobalEntityID(EntityBlackGuard2.class, "BlackGuard2", EntityRegistry.findGlobalUniqueEntityId());
+
+		EntityRegistry.registerGlobalEntityID(EntityBlackGuard2.class, "BlackGuard2",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityBlackGuard2.class, "BlackGuard2", 6, this, 134, 7, true);
-		LanguageRegistry.instance().addStringLocalization("entity.BlackGuard2.mod_mobs.name", "Black Guard2");   		
+		LanguageRegistry.instance().addStringLocalization("entity.BlackGuard2.mod_mobs.name", "Black Guard2");
 		int id5 = 305; // has to be unique
 		EntityList.IDtoClassMapping.put(id5, EntityBlackGuard2.class);
 		EntityList.entityEggs.put(id5, new EntityEggInfo(id5, 0xffd63a, 0xf6dc76));
-		
+
 		EntityRegistry.registerGlobalEntityID(EntityVarze.class, "Varze", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityVarze.class, "Varze", 5, this, 133, 6, true);
-		LanguageRegistry.instance().addStringLocalization("entity.Varze.mod_mobs.name", "Sir Armik Varze");   		
+		LanguageRegistry.instance().addStringLocalization("entity.Varze.mod_mobs.name", "Sir Armik Varze");
 		int id4 = 304; // has to be unique
 		EntityList.IDtoClassMapping.put(id4, EntityVarze.class);
 		EntityList.entityEggs.put(id4, new EntityEggInfo(id4, 0xffd64a, 0xf6dc76));
 
-		EntityRegistry.registerGlobalEntityID(EntityMossGiant.class, "MossGiant", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerGlobalEntityID(EntityMossGiant.class, "MossGiant",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityMossGiant.class, "MossGiant", 7, this, 135, 8, true);
-		LanguageRegistry.instance().addStringLocalization("entity.MossGiant.mod_mobs.name", "Moss Giant");   		
+		LanguageRegistry.instance().addStringLocalization("entity.MossGiant.mod_mobs.name", "Moss Giant");
 		int id6 = 306; // has to be unique
 		EntityList.IDtoClassMapping.put(id6, EntityMossGiant.class);
 		EntityList.entityEggs.put(id6, new EntityEggInfo(id6, 0xffd63a, 0xf6dc76));
-		
-		EntityRegistry.registerGlobalEntityID(EntityFireGiant.class, "FireGiant", EntityRegistry.findGlobalUniqueEntityId());
+
+		EntityRegistry.registerGlobalEntityID(EntityFireGiant.class, "FireGiant",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityFireGiant.class, "FireGiant", 8, this, 136, 9, true);
-		LanguageRegistry.instance().addStringLocalization("entity.FireGiant.mod_mobs.name", "Fire Giant");   		
+		LanguageRegistry.instance().addStringLocalization("entity.FireGiant.mod_mobs.name", "Fire Giant");
 		int id7 = 307; // has to be unique
 		EntityList.IDtoClassMapping.put(id7, EntityFireGiant.class);
 		EntityList.entityEggs.put(id7, new EntityEggInfo(id7, 0xffd63a, 0xf6dc76));
-		
-		EntityRegistry.registerGlobalEntityID(EntityCaveCrawler.class, "CaveCrawler", EntityRegistry.findGlobalUniqueEntityId());
+
+		EntityRegistry.registerGlobalEntityID(EntityCaveCrawler.class, "CaveCrawler",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityCaveCrawler.class, "CaveCrawler", 9, this, 137, 10, true);
-		LanguageRegistry.instance().addStringLocalization("entity.CaveCrawler.mod_mobs.name", "Cave Crawler");   		
+		LanguageRegistry.instance().addStringLocalization("entity.CaveCrawler.mod_mobs.name", "Cave Crawler");
 		int id8 = 308; // has to be unique
 		EntityList.IDtoClassMapping.put(id8, EntityCaveCrawler.class);
 		EntityList.entityEggs.put(id8, new EntityEggInfo(id8, 0xffd63a, 0xf6dc76));
-		
+
 		EntityRegistry.registerGlobalEntityID(EntityGhost.class, "Ghost", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityGhost.class, "Ghost", 10, this, 138, 11, true);
-		LanguageRegistry.instance().addStringLocalization("entity.Ghost.mod_mobs.name", "Ghost");   		
+		LanguageRegistry.instance().addStringLocalization("entity.Ghost.mod_mobs.name", "Ghost");
 		int id9 = 309; // has to be unique
 		EntityList.IDtoClassMapping.put(id9, EntityGhost.class);
 		EntityList.entityEggs.put(id9, new EntityEggInfo(id9, 0xffd63a, 0xf6dc76));
-		
-		EntityRegistry.registerGlobalEntityID(EntityBlackDemon.class, "BlackDemon", EntityRegistry.findGlobalUniqueEntityId());
+
+		EntityRegistry.registerGlobalEntityID(EntityBlackDemon.class, "BlackDemon",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityBlackDemon.class, "BlackDemon", 11, this, 139, 12, true);
-		LanguageRegistry.instance().addStringLocalization("entity.BlackDemon.mod_mobs.name", "Black Demon");   		
+		LanguageRegistry.instance().addStringLocalization("entity.BlackDemon.mod_mobs.name", "Black Demon");
 		int id10 = 10; // has to be unique
 		EntityList.IDtoClassMapping.put(id10, EntityBlackDemon.class);
 		EntityList.entityEggs.put(id10, new EntityEggInfo(id10, 0xffd63a, 0xf6dc76));
-		
+
 		EntityRegistry.registerGlobalEntityID(EntityCook.class, "Cook", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityCook.class, "Cook", 12, this, 140, 13, true);
-		LanguageRegistry.instance().addStringLocalization("entity.Cook.mod_mobs.name", "Cook");   		
+		LanguageRegistry.instance().addStringLocalization("entity.Cook.mod_mobs.name", "Cook");
 		int id11 = 11; // has to be unique
 		EntityList.IDtoClassMapping.put(id11, EntityCook.class);
 		EntityList.entityEggs.put(id11, new EntityEggInfo(id11, 0xffd63a, 0xf6dc76));
-		
+
 		EntityRegistry.registerGlobalEntityID(EntityMugger.class, "Mugger", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityMugger.class, "Mugger", 13, this, 141, 14, true);
-		LanguageRegistry.instance().addStringLocalization("entity.Mugger.mod_mobs.name", "Mugger");   		
+		LanguageRegistry.instance().addStringLocalization("entity.Mugger.mod_mobs.name", "Mugger");
 		int id12 = 12; // has to be unique
 		EntityList.IDtoClassMapping.put(id12, EntityMugger.class);
 		EntityList.entityEggs.put(id12, new EntityEggInfo(id12, 0xffd63a, 0xf6dc76));
-		
+
 		EntityRegistry.registerGlobalEntityID(EntityBandit.class, "Bandit", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityBandit.class, "Bandit", 14, this, 142, 15, true);
-		LanguageRegistry.instance().addStringLocalization("entity.Bandit.mod_mobs.name", "Bandit");   		
+		LanguageRegistry.instance().addStringLocalization("entity.Bandit.mod_mobs.name", "Bandit");
 		int id13 = 13; // has to be unique
 		EntityList.IDtoClassMapping.put(id13, EntityBandit.class);
 		EntityList.entityEggs.put(id13, new EntityEggInfo(id13, 0xffd63a, 0xf6dc76));
-		
+
 		EntityRegistry.registerGlobalEntityID(EntityKK.class, "KK", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityKK.class, "KK", 15, this, 143, 16, true);
-		LanguageRegistry.instance().addStringLocalization("entity.KK.mod_mobs.name", "KK");   		
+		LanguageRegistry.instance().addStringLocalization("entity.KK.mod_mobs.name", "KK");
 		int id14 = 14; // has to be unique
 		EntityList.IDtoClassMapping.put(id14, EntityKK.class);
 		EntityList.entityEggs.put(id14, new EntityEggInfo(id14, 0xffd63a, 0xf6dc76));
-		
-		EntityRegistry.registerGlobalEntityID(EntityKKspawn.class, "KKspawn", EntityRegistry.findGlobalUniqueEntityId());
+
+		EntityRegistry.registerGlobalEntityID(EntityKKspawn.class, "KKspawn",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityKKspawn.class, "KKspawn", 16, this, 154, 17, true);
-		LanguageRegistry.instance().addStringLocalization("entity.KKspawn.mod_mobs.name", "KKspawn");   		
+		LanguageRegistry.instance().addStringLocalization("entity.KKspawn.mod_mobs.name", "KKspawn");
 		int id15 = 15; // has to be unique
 		EntityList.IDtoClassMapping.put(id15, EntityKKspawn.class);
 		EntityList.entityEggs.put(id15, new EntityEggInfo(id15, 0xffd63a, 0xf6dc76));
-		
-		
-		EntityRegistry.registerGlobalEntityID(EntityChristmasGuard.class, "Christmas Guard", EntityRegistry.findGlobalUniqueEntityId());
+
+		EntityRegistry.registerGlobalEntityID(EntityChristmasGuard.class, "Christmas Guard",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityChristmasGuard.class, "Christmas Guard", 17, this, 154, 15, true);
-		LanguageRegistry.instance().addStringLocalization("entity.ChristmasGuard.mod_mobs.name", "ChristmasGuard");   		
+		LanguageRegistry.instance().addStringLocalization("entity.ChristmasGuard.mod_mobs.name", "ChristmasGuard");
 		int id17 = 17; // has to be unique
 		EntityList.IDtoClassMapping.put(id17, EntityChristmasGuard.class);
 		EntityList.entityEggs.put(id17, new EntityEggInfo(id17, 0xff0000, 0xf6dc76));
-		
-		EntityRegistry.registerGlobalEntityID(EntityCaveCrawler2Boss.class, "Cave Crawler Boss", EntityRegistry.findGlobalUniqueEntityId());
+
+		EntityRegistry.registerGlobalEntityID(EntityCaveCrawler2Boss.class, "Cave Crawler Boss",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityCaveCrawler2Boss.class, "Cave Crawler Boss", 18, this, 154, 15, true);
-		LanguageRegistry.instance().addStringLocalization("CaveCrawler2Boss.mod_mobs", "CaveCrawler2Boss");   		
+		LanguageRegistry.instance().addStringLocalization("CaveCrawler2Boss.mod_mobs", "CaveCrawler2Boss");
 		int id18 = 18; // has to be unique
 		EntityList.IDtoClassMapping.put(id18, EntityCaveCrawler2Boss.class);
 		EntityList.entityEggs.put(id18, new EntityEggInfo(id18, 0xff0000, 0xf6dc76));
 
-		EntityRegistry.registerGlobalEntityID(EntityTutGuide.class, "Tutorial Guide", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerGlobalEntityID(EntityTutGuide.class, "Tutorial Guide",
+				EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityTutGuide.class, "Tutorial Guide", 19, this, 154, 15, true);
-		LanguageRegistry.instance().addStringLocalization("TutGuide.mod_mobs", "TutGuide");   		
+		LanguageRegistry.instance().addStringLocalization("TutGuide.mod_mobs", "TutGuide");
 		int id19 = 19; // has to be unique
 		EntityList.IDtoClassMapping.put(id19, EntityTutGuide.class);
 		EntityList.entityEggs.put(id19, new EntityEggInfo(id19, 0xff0000, 0xf6dc76));
 
-		
-		
-		
-             EntityRegistry.registerGlobalEntityID(EntityKQ2.class, "Kalphite", 74);                  
-                       ModLoader.addSpawn(EntityKQ2.class, 1, 1, 2, EnumCreatureType.creature);
-                   	EntityList.entityEggs.put(Integer.valueOf(74), new EntityEggInfo(74, 0xffd63a, 0xf6dc76));
-					ModLoader.addLocalization("entity.Kalphite.name", "Kalphite");
-                
-                EntityRegistry.registerGlobalEntityID(EntityKQ.class, "Kalphite queen", 75);                  
-                       ModLoader.addSpawn(EntityKQ.class, 0, 4, 10, EnumCreatureType.creature);
-                   	EntityList.entityEggs.put(Integer.valueOf(75), new EntityEggInfo(75, 0xffd63a, 0xf6dc76));
-					ModLoader.addLocalization("entity.Kalphite queen.name", "Kalphite Queen"); 					
- 
- }
+		EntityRegistry.registerGlobalEntityID(EntityKQ2.class, "Kalphite", 74);
+		ModLoader.addSpawn(EntityKQ2.class, 1, 1, 2, EnumCreatureType.creature);
+		EntityList.entityEggs.put(Integer.valueOf(74), new EntityEggInfo(74, 0xffd63a, 0xf6dc76));
+		ModLoader.addLocalization("entity.Kalphite.name", "Kalphite");
 
+		EntityRegistry.registerGlobalEntityID(EntityKQ.class, "Kalphite queen", 75);
+		ModLoader.addSpawn(EntityKQ.class, 0, 4, 10, EnumCreatureType.creature);
+		EntityList.entityEggs.put(Integer.valueOf(75), new EntityEggInfo(75, 0xffd63a, 0xf6dc76));
+		ModLoader.addLocalization("entity.Kalphite queen.name", "Kalphite Queen");
+		
+		EntityRegistry.registerGlobalEntityID(EntityTurael.class, "Turael", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityTurael.class, "Turael", 20, this, 154, 15, true);
+		LanguageRegistry.instance().addStringLocalization("Turael.mod_mobs", "Turael");   		
+		int id20 = 20; // has to be unique
+		EntityList.IDtoClassMapping.put(id20, EntityTurael.class);
+		EntityList.entityEggs.put(id20, new EntityEggInfo(id20, 0xff0250, 0xf6dc76));
 
-  
- 
+	}
+
 }

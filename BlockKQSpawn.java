@@ -34,7 +34,7 @@ public class BlockKQSpawn extends Block
 	{
     	   world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
 		EntityKQ entity = new EntityKQ(world);
-		entity.setLocationAndAngles(x+0.5, y + 1, z+0.5,
+		entity.setLocationAndAngles(x, y + 1, z+1,
 				world.rand.nextFloat() * 360.0F, 0.0F);
 		world.spawnEntityInWorld(entity);
 		  if(intspawn<50){
