@@ -10,50 +10,54 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.world.World;
 
-public class BlockHeroKnightSpawn extends Block
-{
-	 int intspawn = 0;
-    public BlockHeroKnightSpawn(int i, int j)
-    {
-    	  super(i, Material.rock);
-        this.setCreativeTab(CreativeTabs.tabBlock);
-    
-		if(intspawn<=0) {setTickRandomly(true);}
-}
+public class BlockHeroKnightSpawn extends Block {
+	int intspawn = 0;
 
-    public void onBlockAdded(World par1World, int par2, int par3, int par4)
-{par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, this.tickRate(par1World));}
-    public int tickRate(World par1World){return 20*200;}
-    
-    
-    
+	public BlockHeroKnightSpawn(int i, int j) {
+		super(i, Material.rock);
+		this.setCreativeTab(CreativeTabs.tabBlock);
 
-    public void updateTick(World world, int x, int y, int z, Random par5Random)
+		if (intspawn <= 0) {
+			setTickRandomly(true);
+		}
+	}
+
+	public void onBlockAdded(World par1World, int par2, int par3, int par4) {
+		par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, this.tickRate(par1World));
+	}
+
+	public int tickRate(World par1World) {
+		return 20 * 200;
+	}
+
+	public void updateTick(World world, int x, int y, int z, Random par5Random)
 
 	{
-    	   world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
+		world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
 		EntityHeroKnight entity = new EntityHeroKnight(world);
-		entity.setLocationAndAngles(x+0.5, y + 1, z+0.5,
-				world.rand.nextFloat() * 360.0F, 0.0F);
+		entity.setLocationAndAngles(x + 0.5, y + 1, z + 0.5, world.rand.nextFloat() * 360.0F, 0.0F);
 		world.spawnEntityInWorld(entity);
-		 world.setBlock(x, y+1, z, 0);
-		  world.setBlock(x, y+2, z, 0);
-		  world.setBlock(x, y+3, z, 0);
-		  if(intspawn<50){
-		  intspawn += 1; setTickRandomly(false);}
-		  else {intspawn = 0; setTickRandomly(true);}
+		world.setBlock(x, y + 1, z, 0);
+		world.setBlock(x, y + 2, z, 0);
+		world.setBlock(x, y + 3, z, 0);
+		if (intspawn < 50) {
+			intspawn += 1;
+			setTickRandomly(false);
+		} else {
+			intspawn = 0;
+			setTickRandomly(true);
+		}
 	}
-    
-    public int idDropped(int par1, Random par2Random, int par3)
-    {
-        return Block.stone.blockID;
-    }
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister ir)
-    {
-           
-            {
-            this.blockIcon = ir.registerIcon("WhiteKnightBlock");
-            }
-    }
+
+	public int idDropped(int par1, Random par2Random, int par3) {
+		return mod_BlocksGalore.HeroKnightSpawn.blockID;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir) {
+
+		{
+			this.blockIcon = ir.registerIcon("WhiteKnightBlock");
+		}
+	}
 }
