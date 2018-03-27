@@ -1,7 +1,6 @@
 package net.minecraft.src;
 
 import cpw.mods.fml.common.network.IGuiHandler;
-import cpw.mods.fml.common.network.NetworkMod;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 

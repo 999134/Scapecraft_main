@@ -1,28 +1,17 @@
 package net.minecraft.src;
 
-import java.util.Map;
-
-import potato.TestClientProxy;
-import potato.TestCommonProxy;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.entity.EntityEggInfo;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.boss.BossStatus;
-import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.common.DungeonHooks;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraftforge.client.MinecraftForgeClient;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.Mod.Instance;
+import net.minecraft.entity.EntityEggInfo;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
+import potato.TestCommonProxy;
 
 @Mod(modid = "mod_mobs", name = "mod_mobs", version = "1.6.4")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -198,10 +187,10 @@ public class mod_mobs {
 		ModLoader.addSpawn(EntityKQ.class, 0, 4, 10, EnumCreatureType.creature);
 		EntityList.entityEggs.put(Integer.valueOf(75), new EntityEggInfo(75, 0xffd63a, 0xf6dc76));
 		ModLoader.addLocalization("entity.Kalphite queen.name", "Kalphite Queen");
-		
+
 		EntityRegistry.registerGlobalEntityID(EntityTurael.class, "Turael", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityTurael.class, "Turael", 20, this, 154, 15, true);
-		LanguageRegistry.instance().addStringLocalization("Turael.mod_mobs", "Turael");   		
+		LanguageRegistry.instance().addStringLocalization("Turael.mod_mobs", "Turael");
 		int id20 = 20; // has to be unique
 		EntityList.IDtoClassMapping.put(id20, EntityTurael.class);
 		EntityList.entityEggs.put(id20, new EntityEggInfo(id20, 0xff0250, 0xf6dc76));

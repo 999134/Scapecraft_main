@@ -8,7 +8,6 @@ import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -213,14 +212,14 @@ public class GuiTurael {
 			World world = server.worldServers[0];
 
 			if (button.id == 0) {
-				if(true) {
-					//do this
+				if (true) {
+					// do this
 				}
 			}
 
 			if (button.id == 1) {
-				if(true) {
-					//do this
+				if (true) {
+					// do this
 				}
 			}
 

@@ -19,32 +19,29 @@ package net.minecraft.src;
  *
  */
 @Deprecated
-public class TradeEntry
-{
-    @Deprecated
-    public final int id;
-    @Deprecated
-    public float chance;
-    @Deprecated
-    public boolean buying;
-    @Deprecated
-    public int min = 0;
-    @Deprecated
-    public int max = 0;
+public class TradeEntry {
+	@Deprecated
+	public final int id;
+	@Deprecated
+	public float chance;
+	@Deprecated
+	public boolean buying;
+	@Deprecated
+	public int min = 0;
+	@Deprecated
+	public int max = 0;
 
-    @Deprecated
-    public TradeEntry(int id, float chance, boolean buying, int min, int max)
-    {
-        this.id = id;
-        this.chance = chance;
-        this.buying = buying;
-        this.min = min;
-        this.max = max;
-    }
+	@Deprecated
+	public TradeEntry(int id, float chance, boolean buying, int min, int max) {
+		this.id = id;
+		this.chance = chance;
+		this.buying = buying;
+		this.min = min;
+		this.max = max;
+	}
 
-    @Deprecated
-    public TradeEntry(int id, float chance, boolean buying)
-    {
-        this(id, chance, buying, 0, 0);
-    }
+	@Deprecated
+	public TradeEntry(int id, float chance, boolean buying) {
+		this(id, chance, buying, 0, 0);
+	}
 }

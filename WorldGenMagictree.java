@@ -44,8 +44,7 @@ public class WorldGenMagictree extends WorldGenerator {
 			return false;
 		}
 		int j1 = world.getBlockId(i, j - 1, k);
-		if (j1 != Block.sand.blockID && j1 != Block.dirt.blockID
-				&& j1 != Block.grass.blockID || j >= 256 - l - 1)
+		if (j1 != Block.sand.blockID && j1 != Block.dirt.blockID && j1 != Block.grass.blockID || j >= 256 - l - 1)
 		// sand, dirt, grass = the block that the tree can spawn on
 		{
 			return false;
@@ -59,12 +58,9 @@ public class WorldGenMagictree extends WorldGenerator {
 				int l3 = k3 - i;
 				for (int i4 = k - i3; i4 <= k + i3; i4++) {
 					int j4 = i4 - k;
-					if ((Math.abs(l3) != i3 || Math.abs(j4) != i3 || random
-							.nextInt(2) != 0 && j2 != 0)
-							&& !Block.opaqueCubeLookup[world.getBlockId(k3, k1,
-									i4)]) {
-						setBlockAndMetadata(world, k3, k1, i4,
-								mod_MagicTree.Magicleaf.blockID, 0);
+					if ((Math.abs(l3) != i3 || Math.abs(j4) != i3 || random.nextInt(2) != 0 && j2 != 0)
+							&& !Block.opaqueCubeLookup[world.getBlockId(k3, k1, i4)]) {
+						setBlockAndMetadata(world, k3, k1, i4, mod_MagicTree.Magicleaf.blockID, 0);
 					}
 				}
 			}
@@ -73,8 +69,7 @@ public class WorldGenMagictree extends WorldGenerator {
 		for (int l1 = 0; l1 < l; l1++) {
 			int k2 = world.getBlockId(i, j + l1, k);
 			if (k2 == 0 || k2 == mod_MagicTree.Magicleaf.blockID) {
-				setBlockAndMetadata(world, i, j + l1, k,
-						mod_MagicTree.Magiclog.blockID, 0);
+				setBlockAndMetadata(world, i, j + l1, k, mod_MagicTree.Magiclog.blockID, 0);
 			}
 		}
 

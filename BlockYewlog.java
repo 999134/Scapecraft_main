@@ -6,34 +6,26 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
 public class BlockYewlog extends Block {
 
-	
 	protected BlockYewlog(int i, int j) {
 		super(i, Material.wood);
-        this.setCreativeTab(CreativeTabs.tabBlock);
-		
-        MinecraftForge.setBlockHarvestLevel(mod_YewTree.Yewlog, 0, "axe", 2);
+		this.setCreativeTab(CreativeTabs.tabBlock);
+
+		MinecraftForge.setBlockHarvestLevel(mod_YewTree.Yewlog, 0, "axe", 2);
 		setTickRandomly(true);
 
 	}
 
-
-      
-	  
 	public int quantityDropped(Random random) {
 		return 1;
 	}
@@ -42,8 +34,7 @@ public class BlockYewlog extends Block {
 		return mod_YewTree.Yewlog.blockID;
 	}
 
-	public void harvestBlock(World world, EntityPlayer entityplayer, int i,
-			int j, int k, int l) {
+	public void harvestBlock(World world, EntityPlayer entityplayer, int i, int j, int k, int l) {
 		super.harvestBlock(world, entityplayer, i, j, k, l);
 	}
 
@@ -60,8 +51,7 @@ public class BlockYewlog extends Block {
 						}
 						int i2 = world.getBlockMetadata(i + i1, j + j1, k + k1);
 						if ((i2 & 8) == 0) {
-							world.setBlock(i + i1, j + j1, k + k1,
-									i2 | 8);
+							world.setBlock(i + i1, j + j1, k + k1, i2 | 8);
 						}
 					}
 
@@ -76,11 +66,8 @@ public class BlockYewlog extends Block {
 
 	{
 
-
-
 		EntityBot entity = new EntityBot(world);
-		entity.setLocationAndAngles(x+5, y - 1, z+2,
-				world.rand.nextFloat() * 360.0F, 0.0F);
+		entity.setLocationAndAngles(x + 5, y - 1, z + 2, world.rand.nextFloat() * 360.0F, 0.0F);
 		world.spawnEntityInWorld(entity);
 
 	}
@@ -95,28 +82,20 @@ public class BlockYewlog extends Block {
 	private Icon field_94392_b;
 
 	public Icon getIcon(int par1, int par2) {
-	return par1 == 0 ? this.field_94392_b : (par1 == 1 ? this.field_94393_a
-	: this.blockIcon);
+		return par1 == 0 ? this.field_94392_b : (par1 == 1 ? this.field_94393_a : this.blockIcon);
 	}
 
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister ir)
-	{
-    	   this.blockIcon = ir.registerIcon("yewlog0");//side
-	this.field_94393_a = ir.registerIcon("yewlog1");//Top
-	this.field_94392_b = ir.registerIcon("yewlog1");//Bottom
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir) {
+		this.blockIcon = ir.registerIcon("yewlog0");// side
+		this.field_94393_a = ir.registerIcon("yewlog1");// Top
+		this.field_94392_b = ir.registerIcon("yewlog1");// Bottom
 	}
-	
-	
-	
-	
-	
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
-    {
-          for(int i = 0; i < 2; i++)
-          {
-                 par3List.add(new ItemStack(par1, 1, i));
-          }
-    }
+
+	@SideOnly(Side.CLIENT)
+	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List) {
+		for (int i = 0; i < 2; i++) {
+			par3List.add(new ItemStack(par1, 1, i));
+		}
+	}
 }
