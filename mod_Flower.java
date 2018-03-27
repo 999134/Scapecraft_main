@@ -2,29 +2,16 @@ package net.minecraft.src;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockOre;
 import net.minecraft.block.StepSound;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
-import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.common.DungeonHooks;
-import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.Mod.Init;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class mod_Flower extends BaseMod {
 	public static final StepSound soundStoneFootstep = new StepSound("stone", 1.0F, 1.0F);
@@ -327,7 +314,7 @@ public class mod_Flower extends BaseMod {
 		// Block.wood,Character.valueOf('Y'),Block.torchWood});
 
 		GameRegistry.addShapelessRecipe(new ItemStack(mod_Flower.TombKey, 2),
-				new Object[] {mod_Flower.AhrimKey, mod_Flower.AkrisaeKey, mod_Flower.DharokKey, mod_Flower.KarilKey,
+				new Object[] { mod_Flower.AhrimKey, mod_Flower.AkrisaeKey, mod_Flower.DharokKey, mod_Flower.KarilKey,
 						mod_Flower.GuthanKey, mod_Flower.ToragKey, mod_Flower.VeracKey });
 
 		GameRegistry.addSmelting(cabbagepieuncooked.itemID, new ItemStack(cabbagepie), 1.0F);
