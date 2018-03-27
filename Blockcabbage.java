@@ -11,80 +11,68 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class Blockcabbage extends Block
-{
-        protected Blockcabbage(int i, int j)
-        {
-                super(i, Material.plants);
-             
-                setTickRandomly(true);
-                float f = 0.2F;
-                setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 3F, 0.5F + f);
-                this.setCreativeTab(CreativeTabs.tabBlock);
-        }
+public class Blockcabbage extends Block {
+	protected Blockcabbage(int i, int j) {
+		super(i, Material.plants);
 
-        public boolean canPlaceBlockAt(World world, int i, int j, int k)
-        {
-                return super.canPlaceBlockAt(world, i, j, k) && canThisPlantGrowOnThisBlockID(world.getBlockId(i, j - 1, k));
-        }
+		setTickRandomly(true);
+		float f = 0.2F;
+		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 3F, 0.5F + f);
+		this.setCreativeTab(CreativeTabs.tabBlock);
+	}
 
-        protected boolean canThisPlantGrowOnThisBlockID(int i)
-        {
-                return i == Block.grass.blockID || i == Block.dirt.blockID || i == Block.tilledField.blockID || i ==mod_BlocksGalore.CabbageSpawn.blockID;
-        }
+	public boolean canPlaceBlockAt(World world, int i, int j, int k) {
+		return super.canPlaceBlockAt(world, i, j, k) && canThisPlantGrowOnThisBlockID(world.getBlockId(i, j - 1, k));
+	}
 
-        public void onNeighborBlockChange(World world, int i, int j, int k, int l)
-        {
-                super.onNeighborBlockChange(world, i, j, k, l);
-                checkFlowerChange(world, i, j, k);
-        }
+	protected boolean canThisPlantGrowOnThisBlockID(int i) {
+		return i == Block.grass.blockID || i == Block.dirt.blockID || i == Block.tilledField.blockID
+				|| i == mod_BlocksGalore.CabbageSpawn.blockID;
+	}
 
-        public void updateTick(World world, int i, int j, int k, Random random)
-        {
-                checkFlowerChange(world, i, j, k);
-        }
+	public void onNeighborBlockChange(World world, int i, int j, int k, int l) {
+		super.onNeighborBlockChange(world, i, j, k, l);
+		checkFlowerChange(world, i, j, k);
+	}
 
-        protected final void checkFlowerChange(World world, int i, int j, int k)
-        {
-                if (!canBlockStay(world, i, j, k))
-                {
-                        dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
-                        world.setBlock(i, j, k, 0);
-                }
-        }
+	public void updateTick(World world, int i, int j, int k, Random random) {
+		checkFlowerChange(world, i, j, k);
+	}
 
-        public boolean canBlockStay(World world, int i, int j, int k)
-        {
-                return (world.getFullBlockLightValue(i, j, k) >= 8 || world.canBlockSeeTheSky(i, j, k)) && canThisPlantGrowOnThisBlockID(world.getBlockId(i, j - 1, k));
-        }
+	protected final void checkFlowerChange(World world, int i, int j, int k) {
+		if (!canBlockStay(world, i, j, k)) {
+			dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
+			world.setBlock(i, j, k, 0);
+		}
+	}
 
-        public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k)
-        {
-                return null;
-        }
+	public boolean canBlockStay(World world, int i, int j, int k) {
+		return (world.getFullBlockLightValue(i, j, k) >= 8 || world.canBlockSeeTheSky(i, j, k))
+				&& canThisPlantGrowOnThisBlockID(world.getBlockId(i, j - 1, k));
+	}
 
-        public boolean isOpaqueCube()
-        {
-                return false;
-        }
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k) {
+		return null;
+	}
 
-        public boolean renderAsNormalBlock()
-        {
-                return false;
-        }
+	public boolean isOpaqueCube() {
+		return false;
+	}
 
-        public int getRenderType()
-        {
-                return 1;
-        }
-        
-        @SideOnly(Side.CLIENT)
-        public void registerIcons(IconRegister ir)
-        {
-               
-                {
-                this.blockIcon = ir.registerIcon("cabbage");
-                }
-        }
-        
-     }
+	public boolean renderAsNormalBlock() {
+		return false;
+	}
+
+	public int getRenderType() {
+		return 1;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir) {
+
+		{
+			this.blockIcon = ir.registerIcon("cabbage");
+		}
+	}
+
+}

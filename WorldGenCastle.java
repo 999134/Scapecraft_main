@@ -3,6 +3,7 @@
 */
 
 package net.minecraft.src;
+
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -13,13 +14,10 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenCastle extends WorldGenerator
-{
+public class WorldGenCastle extends WorldGenerator {
 
-	
-	private static final WeightedRandomChestContent[] bonusChestContent = new WeightedRandomChestContent[]
-			{
-		
+	private static final WeightedRandomChestContent[] bonusChestContent = new WeightedRandomChestContent[] {
+
 			new WeightedRandomChestContent(mod_BlocksGalore.dlong.itemID, 0, 1, 1, 15),
 			new WeightedRandomChestContent(mod_BlocksGalore.Zammystaff.itemID, 0, 1, 1, 45),
 			new WeightedRandomChestContent(mod_BlocksGalore.BLKSpawn.blockID, 0, 1, 6, 50),
@@ -32,15 +30,12 @@ public class WorldGenCastle extends WorldGenerator
 			new WeightedRandomChestContent(mod_phat.blackLeggings.itemID, 0, 1, 1, 30),
 			new WeightedRandomChestContent(mod_phat.blackHelmet.itemID, 0, 1, 1, 30),
 			new WeightedRandomChestContent(mod_phat.blackBoots.itemID, 0, 1, 1, 30),
-			new WeightedRandomChestContent(Item.arrow.itemID, 500, 10, 20, 40),
-			};
+			new WeightedRandomChestContent(Item.arrow.itemID, 500, 10, 20, 40), };
 
-
-
-	public WorldGenCastle() { }
+	public WorldGenCastle() {
+	}
 
 	public boolean generate(World world, Random rand, int i, int j, int k) {
-	
 
 		world.setBlock(i + 0, j + 0, k + 0, Block.obsidian.blockID);
 		world.setBlock(i + 0, j + 0, k + 1, Block.obsidian.blockID);
@@ -12038,7 +12033,7 @@ public class WorldGenCastle extends WorldGenerator
 		world.setBlock(i + 27, j + 15, k + 4, mod_BlocksGalore.BLKSpawn.blockID);
 		world.setBlock(i + 27, j + 15, k + 9, Block.obsidian.blockID);
 		world.setBlock(i + 27, j + 15, k + 46, Block.obsidian.blockID);
-		//world.setBlock(i + 27, j + 15, k + 50, mod_BlocksGalore.BLKSpawn.blockID);
+		// world.setBlock(i + 27, j + 15, k + 50, mod_BlocksGalore.BLKSpawn.blockID);
 		world.setBlock(i + 27, j + 15, k + 55, Block.obsidian.blockID);
 		world.setBlock(i + 27, j + 16, k + 0, Block.obsidian.blockID);
 		world.setBlock(i + 27, j + 16, k + 9, Block.obsidian.blockID);
@@ -27098,15 +27093,14 @@ public class WorldGenCastle extends WorldGenerator
 		world.setBlock(i + 20, j + 4, k + 54, Block.lavaStill.blockID);
 		world.setBlock(i + 32, j + 4, k + 35, mod_BlocksGalore.KQ2Spawn.blockID);
 
-		
-		TileEntityChest chestEntity = (TileEntityChest)world.getBlockTileEntity(i + 8, j + 8, k + 34);
+		TileEntityChest chestEntity = (TileEntityChest) world.getBlockTileEntity(i + 8, j + 8, k + 34);
 
 		WeightedRandomChestContent.generateChestContents(rand, bonusChestContent, chestEntity, 13);
 
 		ItemStack dirtStack = new ItemStack(Block.stone, 64);
 
 		chestEntity.setInventorySlotContents(13, dirtStack);
-		
+
 		return true;
 	}
 }

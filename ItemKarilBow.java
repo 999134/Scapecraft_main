@@ -9,182 +9,163 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
-public class ItemKarilBow extends ItemBow
-{
-    public static final String[] bowPullIconNameArray = new String[] {"bow_pull_0", "bow_pull_1", "bow_pull_2"};
-    @SideOnly(Side.CLIENT)
-    private Icon[] iconArray;
+public class ItemKarilBow extends ItemBow {
+	public static final String[] bowPullIconNameArray = new String[] { "bow_pull_0", "bow_pull_1", "bow_pull_2" };
+	@SideOnly(Side.CLIENT)
+	private Icon[] iconArray;
 
-    public ItemKarilBow(int par1)
-    {
-        super(par1);
-        this.maxStackSize = 1;
-        this.setMaxDamage(30000);
-        this.setCreativeTab(CreativeTabs.tabCombat);
-        this.setFull3D();
-    }
+	public ItemKarilBow(int par1) {
+		super(par1);
+		this.maxStackSize = 1;
+		this.setMaxDamage(30000);
+		this.setCreativeTab(CreativeTabs.tabCombat);
+		this.setFull3D();
+	}
 
-    /**
-     * called when the player releases the use item button. Args: itemstack, world, entityplayer, itemInUseCount
-     */
-    public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
-    {
-        int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
+	/**
+	 * called when the player releases the use item button. Args: itemstack, world,
+	 * entityplayer, itemInUseCount
+	 */
+	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer,
+			int par4) {
+		int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
 
-        ArrowLooseEvent event = new ArrowLooseEvent(par3EntityPlayer, par1ItemStack, j);
-        MinecraftForge.EVENT_BUS.post(event);
-        if (event.isCanceled())
-        {
-            return;
-        }
-        j = event.charge;
+		ArrowLooseEvent event = new ArrowLooseEvent(par3EntityPlayer, par1ItemStack, j);
+		MinecraftForge.EVENT_BUS.post(event);
+		if (event.isCanceled()) {
+			return;
+		}
+		j = event.charge;
 
-        boolean flag = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
+		boolean flag = par3EntityPlayer.capabilities.isCreativeMode
+				|| EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
 
-        if (flag || par3EntityPlayer.inventory.hasItem(mod_MagicBow.BoltRack.itemID))
-        {
-            float f = 1;
-            f = (f * f + f * 2.0F) / 3.0F;
+		if (flag || par3EntityPlayer.inventory.hasItem(mod_MagicBow.BoltRack.itemID)) {
+			float f = 1;
+			f = (f * f + f * 2.0F) / 3.0F;
 
-            if ((double)f < 0.1D)
-            {
-                return;
-            }
+			if ((double) f < 0.1D) {
+				return;
+			}
 
-            if (f > 1.0F)
-            {
-                f = 2.7F;
-            }
-            ItemStack boots = par3EntityPlayer.getCurrentItemOrArmor(1);ItemStack legs = par3EntityPlayer.getCurrentItemOrArmor(2);ItemStack chest = par3EntityPlayer.getCurrentItemOrArmor(3);ItemStack helmet = par3EntityPlayer.getCurrentItemOrArmor(4);
-            if(boots != null && legs != null && chest != null && helmet != null)
-            {if(boots.getItem() == mod_phat.KarilBoots && legs.getItem() == mod_phat.KarilLeggings && chest.getItem() == mod_phat.KarilChestplate && helmet.getItem() == mod_phat.KarilHelmet)
-            {f = 4.3F;}}
-            
-            
-            EntityArrow entityarrow = new EntityArrow(par2World, par3EntityPlayer, f * 3.2F);
+			if (f > 1.0F) {
+				f = 2.7F;
+			}
+			ItemStack boots = par3EntityPlayer.getCurrentItemOrArmor(1);
+			ItemStack legs = par3EntityPlayer.getCurrentItemOrArmor(2);
+			ItemStack chest = par3EntityPlayer.getCurrentItemOrArmor(3);
+			ItemStack helmet = par3EntityPlayer.getCurrentItemOrArmor(4);
+			if (boots != null && legs != null && chest != null && helmet != null) {
+				if (boots.getItem() == mod_phat.KarilBoots && legs.getItem() == mod_phat.KarilLeggings
+						&& chest.getItem() == mod_phat.KarilChestplate && helmet.getItem() == mod_phat.KarilHelmet) {
+					f = 4.3F;
+				}
+			}
 
-            if (f >= 2.0F)
-            {
-                entityarrow.setIsCritical(true);
-            }
+			EntityArrow entityarrow = new EntityArrow(par2World, par3EntityPlayer, f * 3.2F);
 
-            int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
+			if (f >= 2.0F) {
+				entityarrow.setIsCritical(true);
+			}
 
-            if (k > 0)
-            {
-                entityarrow.setDamage(entityarrow.getDamage() + (double)k * 0.5D + 0.5D);
-            }
+			int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
 
-            int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
+			if (k > 0) {
+				entityarrow.setDamage(entityarrow.getDamage() + (double) k * 0.5D + 0.5D);
+			}
 
-            if (l > 0)
-            {
-                entityarrow.setKnockbackStrength(l);
-            }
+			int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
 
-            if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, par1ItemStack) > 0)
-            {
-                entityarrow.setFire(100);
-            }
+			if (l > 0) {
+				entityarrow.setKnockbackStrength(l);
+			}
 
-            par1ItemStack.damageItem(1, par3EntityPlayer);
-            par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+			if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, par1ItemStack) > 0) {
+				entityarrow.setFire(100);
+			}
 
-            if (flag)
-            {
-                entityarrow.canBePickedUp = 2;
-            }
-            else
-            {
-                par3EntityPlayer.inventory.consumeInventoryItem(mod_MagicBow.BoltRack.itemID);
-            }
+			par1ItemStack.damageItem(1, par3EntityPlayer);
+			par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F,
+					1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
-            if (!par2World.isRemote)
-            {
-                par2World.spawnEntityInWorld(entityarrow);
-            }
-        }
-    }
+			if (flag) {
+				entityarrow.canBePickedUp = 2;
+			} else {
+				par3EntityPlayer.inventory.consumeInventoryItem(mod_MagicBow.BoltRack.itemID);
+			}
 
-    public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        return par1ItemStack;
-    }
+			if (!par2World.isRemote) {
+				par2World.spawnEntityInWorld(entityarrow);
+			}
+		}
+	}
 
-    /**
-     * How long it takes to use or consume an item
-     */
-    public int getMaxItemUseDuration(ItemStack par1ItemStack)
-    {
-        return 72000;
-    }
+	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		return par1ItemStack;
+	}
 
-    /**
-     * returns the action that specifies what animation to play when the items is being used
-     */
-    public EnumAction getItemUseAction(ItemStack par1ItemStack)
-    {
-        return EnumAction.none;
-    }
+	/**
+	 * How long it takes to use or consume an item
+	 */
+	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
+		return 72000;
+	}
 
-    /**
-     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-     */
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        ArrowNockEvent event = new ArrowNockEvent(par3EntityPlayer, par1ItemStack);
-        MinecraftForge.EVENT_BUS.post(event);
-        if (event.isCanceled())
-        {
-            return event.result;
-        }
+	/**
+	 * returns the action that specifies what animation to play when the items is
+	 * being used
+	 */
+	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
+		return EnumAction.none;
+	}
 
-      //  if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID))
-        {
-            par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
-        }
+	/**
+	 * Called whenever this item is equipped and the right mouse button is pressed.
+	 * Args: itemStack, world, entityPlayer
+	 */
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		ArrowNockEvent event = new ArrowNockEvent(par3EntityPlayer, par1ItemStack);
+		MinecraftForge.EVENT_BUS.post(event);
+		if (event.isCanceled()) {
+			return event.result;
+		}
 
-        return par1ItemStack;
-    }
+		// if (par3EntityPlayer.capabilities.isCreativeMode ||
+		// par3EntityPlayer.inventory.hasItem(Item.arrow.itemID))
+		{
+			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+		}
 
-    /**
-     * Return the enchantability factor of the item, most of the time is based on material.
-     */
-    public int getItemEnchantability()
-    {
-        return 1;
-    }
+		return par1ItemStack;
+	}
 
- //   public void registerIcons(IconRegister iconRegister)
-  //	{
-  	//         itemIcon = iconRegister.registerIcon("mod_MagicBow:Crystalbow");
-  //	}
-    
+	/**
+	 * Return the enchantability factor of the item, most of the time is based on
+	 * material.
+	 */
+	public int getItemEnchantability() {
+		return 1;
+	}
 
-    
+	// public void registerIcons(IconRegister iconRegister)
+	// {
+	// itemIcon = iconRegister.registerIcon("mod_MagicBow:Crystalbow");
+	// }
 
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir) {
 
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister ir)
-    {
-         
-            {
-            this.itemIcon = ir.registerIcon("KarilCbowInv");
-            }
-    }
-    
-    
+		{
+			this.itemIcon = ir.registerIcon("KarilCbowInv");
+		}
+	}
+
 }
-

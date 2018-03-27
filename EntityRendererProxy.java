@@ -16,27 +16,25 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
 
 @Deprecated
-public class EntityRendererProxy extends EntityRenderer
-{
-    public static final String fmlMarker = "This is an FML marker";
-    private Minecraft game;
+public class EntityRendererProxy extends EntityRenderer {
+	public static final String fmlMarker = "This is an FML marker";
+	private Minecraft game;
 
-    @Deprecated
-    public EntityRendererProxy(Minecraft minecraft)
-    {
-        super(minecraft);
-        game = minecraft;
-    }
+	@Deprecated
+	public EntityRendererProxy(Minecraft minecraft) {
+		super(minecraft);
+		game = minecraft;
+	}
 
-    @Override
-    @Deprecated
+	@Override
+	@Deprecated
 
-    /**
-     * Will update any inputs that effect the camera angle (mouse) and then render the world and GUI
-     */
-    public void updateCameraAndRender(float tick)
-    {
-        super.updateCameraAndRender(tick);
-        //This is where ModLoader does all of it's ticking
-    }
+	/**
+	 * Will update any inputs that effect the camera angle (mouse) and then render
+	 * the world and GUI
+	 */
+	public void updateCameraAndRender(float tick) {
+		super.updateCameraAndRender(tick);
+		// This is where ModLoader does all of it's ticking
+	}
 }
