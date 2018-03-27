@@ -3,6 +3,7 @@ package net.minecraft.src;
 import java.util.Random;
 
 import com.google.common.collect.Multimap;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -14,17 +15,12 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityFireball;
-import net.minecraft.entity.projectile.EntityLargeFireball;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
@@ -62,8 +58,8 @@ public class ItemAhrimStaff extends ItemSword {
 	}
 
 	/**
-	 * Current implementations of this method in child classes do not use the
-	 * entry argument beside ev. They just raise the damage on the stack.
+	 * Current implementations of this method in child classes do not use the entry
+	 * argument beside ev. They just raise the damage on the stack.
 	 */
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase,
 			EntityLivingBase par3EntityLivingBase) {
@@ -105,8 +101,8 @@ public class ItemAhrimStaff extends ItemSword {
 	}
 
 	/**
-	 * returns the action that specifies what animation to play when the items
-	 * is being used
+	 * returns the action that specifies what animation to play when the items is
+	 * being used
 	 */
 	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
 		return EnumAction.block;
@@ -120,8 +116,8 @@ public class ItemAhrimStaff extends ItemSword {
 	}
 
 	/**
-	 * Called whenever this item is equipped and the right mouse button is
-	 * pressed. Args: itemStack, world, entityPlayer
+	 * Called whenever this item is equipped and the right mouse button is pressed.
+	 * Args: itemStack, world, entityPlayer
 	 */
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		world.playSoundAtEntity(entityplayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
@@ -147,6 +143,7 @@ public class ItemAhrimStaff extends ItemSword {
 		}
 		return itemstack;
 	}
+
 	/**
 	 * Returns if the item (tool) can harvest results from the block type.
 	 */
@@ -155,8 +152,8 @@ public class ItemAhrimStaff extends ItemSword {
 	}
 
 	/**
-	 * Return the enchantability factor of the item, most of the time is based
-	 * on material.
+	 * Return the enchantability factor of the item, most of the time is based on
+	 * material.
 	 */
 	public int getItemEnchantability() {
 		return this.toolMaterial.getEnchantability();

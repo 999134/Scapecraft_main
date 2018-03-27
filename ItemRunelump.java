@@ -11,31 +11,29 @@ import net.minecraft.world.World;
 
 public class ItemRunelump extends Item {
 
-public ItemRunelump(int i)
-  {
-   super(i);
-   this.setCreativeTab(CreativeTabs.tabMaterials);
-  
-  }
-
-  public boolean hasEffect(ItemStack itemstack)
-  {
-   return false;
-  }
-
-  public ItemStack onItemRightClick(ItemStack itemstack, World world,
-			EntityPlayer entityplayer){
-	
-	{
-	
-		return itemstack;}
-	}
-  @SideOnly(Side.CLIENT)
-  public void registerIcons(IconRegister ir)
-  {
-          {
-          this.itemIcon = ir.registerIcon("Runelump");
-          }
-  }
+	public ItemRunelump(int i) {
+		super(i);
+		this.setCreativeTab(CreativeTabs.tabMaterials);
 
 	}
+
+	public boolean hasEffect(ItemStack itemstack) {
+		return false;
+	}
+
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+
+		{
+
+			return itemstack;
+		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir) {
+		{
+			this.itemIcon = ir.registerIcon("Runelump");
+		}
+	}
+
+}

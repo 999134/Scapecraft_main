@@ -14,217 +14,193 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
-public class ItemYewbow extends ItemBow
-{
-    public static final String[] bowPullIconNameArray = new String[] {"bow_pull_0", "bow_pull_1", "bow_pull_2"};
-    @SideOnly(Side.CLIENT)
-    private Icon[] iconArray;
+public class ItemYewbow extends ItemBow {
+	public static final String[] bowPullIconNameArray = new String[] { "bow_pull_0", "bow_pull_1", "bow_pull_2" };
+	@SideOnly(Side.CLIENT)
+	private Icon[] iconArray;
 
-    public ItemYewbow(int par1)
-    {
-        super(par1);
-        this.maxStackSize = 1;
-        this.setMaxDamage(384);
-        this.setCreativeTab(CreativeTabs.tabCombat);
-        this.setFull3D();
-    }
+	public ItemYewbow(int par1) {
+		super(par1);
+		this.maxStackSize = 1;
+		this.setMaxDamage(384);
+		this.setCreativeTab(CreativeTabs.tabCombat);
+		this.setFull3D();
+	}
 
-    /**
-     * called when the player releases the use item button. Args: itemstack, world, entityplayer, itemInUseCount
-     */
-    public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
-    {
-        int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
+	/**
+	 * called when the player releases the use item button. Args: itemstack, world,
+	 * entityplayer, itemInUseCount
+	 */
+	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer,
+			int par4) {
+		int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
 
-        ArrowLooseEvent event = new ArrowLooseEvent(par3EntityPlayer, par1ItemStack, j);
-        MinecraftForge.EVENT_BUS.post(event);
-        if (event.isCanceled())
-        {
-            return;
-        }
-        j = event.charge;
+		ArrowLooseEvent event = new ArrowLooseEvent(par3EntityPlayer, par1ItemStack, j);
+		MinecraftForge.EVENT_BUS.post(event);
+		if (event.isCanceled()) {
+			return;
+		}
+		j = event.charge;
 
-        boolean flag = par3EntityPlayer.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
+		boolean flag = par3EntityPlayer.capabilities.isCreativeMode
+				|| EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, par1ItemStack) > 0;
 
-        if (flag || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID))
-        {
-            float f = (float)j / 20.0F;
-            f = (f * f + f * 2.0F) / 3.0F;
+		if (flag || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID)) {
+			float f = (float) j / 20.0F;
+			f = (f * f + f * 2.0F) / 3.0F;
 
-            if ((double)f < 0.1D)
-            {
-                return;
-            }
+			if ((double) f < 0.1D) {
+				return;
+			}
 
-            if (f > 1.0F)
-            {
-                f = 1.0F;
-            }
-            float mod;
-            mod=1;
-            ItemStack boots = par3EntityPlayer.getCurrentItemOrArmor(1);ItemStack legs = par3EntityPlayer.getCurrentItemOrArmor(2);ItemStack chest = par3EntityPlayer.getCurrentItemOrArmor(3);ItemStack helmet = par3EntityPlayer.getCurrentItemOrArmor(4);
-            if(boots != null && legs != null && chest != null && helmet != null) {
-            if(boots.getItem() == mod_phat.greendBoots && legs.getItem() == mod_phat.greendLeggings && chest.getItem() == mod_phat.greendChestplate && helmet.getItem() == mod_phat.greendHelmet)
-            {mod = 1.4F;}
-            if(boots.getItem() == mod_phat.blackdBoots && legs.getItem() == mod_phat.blackdLeggings && chest.getItem() == mod_phat.blackdChestplate && helmet.getItem() == mod_phat.blackdHelmet)
-            {mod = 1.8F;}
-            if(boots.getItem() == mod_phat.KarilBoots && legs.getItem() == mod_phat.KarilLeggings && chest.getItem() == mod_phat.KarilChestplate && helmet.getItem() == mod_phat.KarilHelmet)
-            {mod = 2.2F;}
-            }
-            
-            
-            EntityArrow entityarrow = new EntityArrow(par2World, par3EntityPlayer, f * 3.5F* mod);
+			if (f > 1.0F) {
+				f = 1.0F;
+			}
+			float mod;
+			mod = 1;
+			ItemStack boots = par3EntityPlayer.getCurrentItemOrArmor(1);
+			ItemStack legs = par3EntityPlayer.getCurrentItemOrArmor(2);
+			ItemStack chest = par3EntityPlayer.getCurrentItemOrArmor(3);
+			ItemStack helmet = par3EntityPlayer.getCurrentItemOrArmor(4);
+			if (boots != null && legs != null && chest != null && helmet != null) {
+				if (boots.getItem() == mod_phat.greendBoots && legs.getItem() == mod_phat.greendLeggings
+						&& chest.getItem() == mod_phat.greendChestplate && helmet.getItem() == mod_phat.greendHelmet) {
+					mod = 1.4F;
+				}
+				if (boots.getItem() == mod_phat.blackdBoots && legs.getItem() == mod_phat.blackdLeggings
+						&& chest.getItem() == mod_phat.blackdChestplate && helmet.getItem() == mod_phat.blackdHelmet) {
+					mod = 1.8F;
+				}
+				if (boots.getItem() == mod_phat.KarilBoots && legs.getItem() == mod_phat.KarilLeggings
+						&& chest.getItem() == mod_phat.KarilChestplate && helmet.getItem() == mod_phat.KarilHelmet) {
+					mod = 2.2F;
+				}
+			}
 
-            if (f == 1.0F)
-            {
-                entityarrow.setIsCritical(true);
-            }
+			EntityArrow entityarrow = new EntityArrow(par2World, par3EntityPlayer, f * 3.5F * mod);
 
-            int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
+			if (f == 1.0F) {
+				entityarrow.setIsCritical(true);
+			}
 
-            if (k > 0)
-            {
-                entityarrow.setDamage(entityarrow.getDamage() + (double)k * 0.5D + 0.5D);
-            }
+			int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
 
-            int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
+			if (k > 0) {
+				entityarrow.setDamage(entityarrow.getDamage() + (double) k * 0.5D + 0.5D);
+			}
 
-            if (l > 0)
-            {
-                entityarrow.setKnockbackStrength(l);
-            }
+			int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
 
-            if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, par1ItemStack) > 0)
-            {
-                entityarrow.setFire(100);
-            }
+			if (l > 0) {
+				entityarrow.setKnockbackStrength(l);
+			}
 
-            par1ItemStack.damageItem(1, par3EntityPlayer);
-            par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+			if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, par1ItemStack) > 0) {
+				entityarrow.setFire(100);
+			}
 
-            if (flag)
-            {
-                entityarrow.canBePickedUp = 2;
-            }
-            else
-            {
-                par3EntityPlayer.inventory.consumeInventoryItem(Item.arrow.itemID);
-            }
+			par1ItemStack.damageItem(1, par3EntityPlayer);
+			par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F,
+					1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
 
-            if (!par2World.isRemote)
-            {
-                par2World.spawnEntityInWorld(entityarrow);
-            }
-        }
-    }
+			if (flag) {
+				entityarrow.canBePickedUp = 2;
+			} else {
+				par3EntityPlayer.inventory.consumeInventoryItem(Item.arrow.itemID);
+			}
 
-    public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        return par1ItemStack;
-    }
+			if (!par2World.isRemote) {
+				par2World.spawnEntityInWorld(entityarrow);
+			}
+		}
+	}
 
-    /**
-     * How long it takes to use or consume an item
-     */
-    public int getMaxItemUseDuration(ItemStack par1ItemStack)
-    {
-        return 72000;
-    }
+	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		return par1ItemStack;
+	}
 
-    /**
-     * returns the action that specifies what animation to play when the items is being used
-     */
-    public EnumAction getItemUseAction(ItemStack par1ItemStack)
-    {
-        return EnumAction.bow;
-    }
+	/**
+	 * How long it takes to use or consume an item
+	 */
+	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
+		return 72000;
+	}
 
-    /**
-     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-     */
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        ArrowNockEvent event = new ArrowNockEvent(par3EntityPlayer, par1ItemStack);
-        MinecraftForge.EVENT_BUS.post(event);
-        if (event.isCanceled())
-        {
-            return event.result;
-        }
+	/**
+	 * returns the action that specifies what animation to play when the items is
+	 * being used
+	 */
+	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
+		return EnumAction.bow;
+	}
 
-        if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID))
-        {
-            par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
-        }
+	/**
+	 * Called whenever this item is equipped and the right mouse button is pressed.
+	 * Args: itemStack, world, entityPlayer
+	 */
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		ArrowNockEvent event = new ArrowNockEvent(par3EntityPlayer, par1ItemStack);
+		MinecraftForge.EVENT_BUS.post(event);
+		if (event.isCanceled()) {
+			return event.result;
+		}
 
-        return par1ItemStack;
-    }
+		if (par3EntityPlayer.capabilities.isCreativeMode || par3EntityPlayer.inventory.hasItem(Item.arrow.itemID)) {
+			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+		}
 
-    /**
-     * Return the enchantability factor of the item, most of the time is based on material.
-     */
-    public int getItemEnchantability()
-    {
-        return 1;
-    }
+		return par1ItemStack;
+	}
 
+	/**
+	 * Return the enchantability factor of the item, most of the time is based on
+	 * material.
+	 */
+	public int getItemEnchantability() {
+		return 1;
+	}
 
-  
-            
-    	  // public void registerIcons(IconRegister iconRegister)
-    	  //	{
-    	  //	         itemIcon = iconRegister.registerIcon("mod_MagicBow:Yewbow_0");
-    	  //	}
-    public Icon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining)
-    {
-                     if(player.getItemInUse() == null) return this.itemIcon;
-                     int Pulling = stack.getMaxItemUseDuration() - useRemaining;
-                     if (Pulling >= 18)
-                     {
-                                     return Texture[3];
-                     }
-                     else if (Pulling > 13)
-                     {
-                                     return Texture[2];
-                     }
-                     else if (Pulling > 0)
-                     {
-                                     return Texture[1];
-                     }                       
-                     return Texture[0];
-                     }
-    
-    private Icon[] Texture = new Icon[4];
-    public void registerIcons(IconRegister iconRegister)
-    
-    {
-            
-    	this.itemIcon = iconRegister.registerIcon("Yewbow_0");
-                     for (int N = 0; N < 4; N++)
-                     {
-                                     this.Texture[0] = iconRegister.registerIcon("Yewbow_0");
-                                     this.Texture[1] = iconRegister.registerIcon("Yewbow_1");
-                                     this.Texture[2] = iconRegister.registerIcon("Yewbow_2");
-                                     this.Texture[3] = iconRegister.registerIcon("Yewbow_3");
-                                     
-                     }
-    }
-    
-    
-    
+	// public void registerIcons(IconRegister iconRegister)
+	// {
+	// itemIcon = iconRegister.registerIcon("mod_MagicBow:Yewbow_0");
+	// }
+	public Icon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
+		if (player.getItemInUse() == null)
+			return this.itemIcon;
+		int Pulling = stack.getMaxItemUseDuration() - useRemaining;
+		if (Pulling >= 18) {
+			return Texture[3];
+		} else if (Pulling > 13) {
+			return Texture[2];
+		} else if (Pulling > 0) {
+			return Texture[1];
+		}
+		return Texture[0];
+	}
 
+	private Icon[] Texture = new Icon[4];
 
-    @SideOnly(Side.CLIENT)
-    public Icon func_94599_c(int par1)
-    {
-        return this.iconArray[par1];
-    }
-    
-    
-    
+	public void registerIcons(IconRegister iconRegister)
+
+	{
+
+		this.itemIcon = iconRegister.registerIcon("Yewbow_0");
+		for (int N = 0; N < 4; N++) {
+			this.Texture[0] = iconRegister.registerIcon("Yewbow_0");
+			this.Texture[1] = iconRegister.registerIcon("Yewbow_1");
+			this.Texture[2] = iconRegister.registerIcon("Yewbow_2");
+			this.Texture[3] = iconRegister.registerIcon("Yewbow_3");
+
+		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	public Icon func_94599_c(int par1) {
+		return this.iconArray[par1];
+	}
+
 }
-
